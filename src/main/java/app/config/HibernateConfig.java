@@ -25,12 +25,16 @@ public final class HibernateConfig {
     private static Properties buildProps() {
         Properties props = HibernateBaseProperties.createBase();
 
-        // Teaching-friendly default - change to update in production
-        props.put("hibernate.hbm2ddl.auto", "create");
-
         if (System.getenv("DEPLOYED") != null) {
+            // Database already made manually by schema.sql
+            // Hibernate is not allowed to change automatically in production
+            props.put("hibernate.hbm2ddl.auto", "validate");
             setDeployedProperties(props);
         } else {
+            // Locally: control mode by config.properties
+            // - to easily change freely under development without changing the code
+            String mode = Utils.getPropertyValue("HBM2DDL_MODE", "config.properties");
+            props.put("hibernate.hbm2ddl.auto", mode);
             setDevProperties(props);
         }
         return props;
