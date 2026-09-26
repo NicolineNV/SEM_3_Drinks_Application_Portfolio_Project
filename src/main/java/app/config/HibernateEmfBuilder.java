@@ -6,9 +6,14 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 import jakarta.persistence.EntityManagerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Properties;
 
 final class HibernateEmfBuilder {
+
+    private static final Logger logger = LoggerFactory.getLogger(HibernateEmfBuilder.class);
 
     private HibernateEmfBuilder() {}
 
@@ -27,7 +32,7 @@ final class HibernateEmfBuilder {
             return sf.unwrap(EntityManagerFactory.class);
 
         } catch (Throwable ex) {
-            System.err.println("Initial SessionFactory creation failed: " + ex);
+            logger.error("Initial SessionFactory creation failed", ex);
             throw new ExceptionInInitializerError(ex);
         }
     }

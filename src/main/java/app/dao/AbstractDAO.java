@@ -4,12 +4,16 @@ import app.config.HibernateConfig;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
 public abstract class AbstractDAO <T, ID> implements IDAO<T, ID> {
+
+    private static final Logger logger = LoggerFactory.getLogger(AbstractDAO.class);
 
     protected final EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
     private final Class<T> entityClass;
@@ -69,6 +73,7 @@ public abstract class AbstractDAO <T, ID> implements IDAO<T, ID> {
                 if (emTransaction.isActive()) {
                     emTransaction.rollback();
                 }
+                logger.error("Transaction failed, rolled back: {}", e.getMessage(), e);
                 throw e;
             }
         }
