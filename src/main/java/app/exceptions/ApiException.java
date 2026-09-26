@@ -1,5 +1,6 @@
 package app.exceptions;
 
+import io.javalin.http.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +13,11 @@ public class ApiException extends RuntimeException {
         this.code = code;
         logger.error("ApiException (code={}): {}", code, msg);
     }
+
+    public ApiException (HttpStatus status, String msg) {
+        this(status.getCode(), msg);
+    }
+
     public int getCode(){
         return code;
     }
