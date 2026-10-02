@@ -7,20 +7,32 @@ import java.util.*;
 
 public class CocktailDAO extends AbstractDAO<Cocktail, Long> {
 
+    /**
+     * getAll() method in AbstractDAO does not use JOIN FETCH.
+     * It simply retrieves Cocktail rows without their relationships.
+     * Because of this a LazyInitializationException will be triggered if not handled.
+     * To avoid this, JOIN FETCH needs to be added to JPQL String.
+     * Also, to make the code easier to read, a static final String was made,
+     * to avoid writing the same 6 lines multiple times.
+     */
+    private static final String COCKTAIL_WITH_RELATIONS =
+            "SELECT c FROM Cocktail c " +
+            "LEFT JOIN FETCH c.cocktailFamily " + // LEFT JOIN FETCH because can be null
+            "LEFT JOIN FETCH c.spirit " +
+            "LEFT JOIN FETCH c.liqueur " +
+            "LEFT JOIN FETCH c.mixer " +
+            "LEFT JOIN FETCH c.syrup " +
+            "LEFT JOIN FETCH c.garnish ";
+
     public CocktailDAO(){
         super(Cocktail.class);
     }
 
     public Optional<Cocktail> getByIdWithDetails(Long id) {
         try (EntityManager em = emf.createEntityManager()) {
-            String jpql = "SELECT c FROM Cocktail c " +
-                    "LEFT JOIN FETCH c.cocktailFamily " + // LEFT JOIN FETCH because can be null
-                    "LEFT JOIN FETCH c.spirit " +
-                    "LEFT JOIN FETCH c.liqueur " +
-                    "LEFT JOIN FETCH c.mixer " +
-                    "LEFT JOIN FETCH c.syrup " +
-                    "LEFT JOIN FETCH c.garnish " +
-                    "WHERE c.id = :id";
+
+            String jpql = COCKTAIL_WITH_RELATIONS + "WHERE c.id = :id";
+
             return em.createQuery(jpql, Cocktail.class)
                     .setParameter("id", id)
                     .getResultStream()
@@ -30,22 +42,28 @@ public class CocktailDAO extends AbstractDAO<Cocktail, Long> {
 
 
 
+    public List<Cocktail> getAllWithDetails() {
+        try (EntityManager em = emf.createEntityManager()) {
+
+            return em.createQuery(COCKTAIL_WITH_RELATIONS, Cocktail.class).getResultList();
+        }
+    }
+
+
+
     public List<CocktailCandidate> getCandidatesForQuiz(Long familyId, Long spiritId) {
         try (EntityManager em = emf.createEntityManager()) {
-            StringBuilder jpql = new StringBuilder( // StringBuilder because there is a conditional structure
-                    "SELECT c FROM Cocktail c " +
-                            "LEFT JOIN FETCH c.spirit " +
-                            "LEFT JOIN FETCH c.liqueur" +
-                            "LEFT JOIN FETCH c.mixer" +
-                            "LEFT JOIN FETCH c.syrup" +
-                            "WHERE c.cocktailFamily.id = :familyId"
-            );
+
+            StringBuilder jpql = new StringBuilder(COCKTAIL_WITH_RELATIONS) // StringBuilder because there is a conditional structure
+                    .append("WHERE c.cocktailFamily.id = :familyId");
+
             if (spiritId != null) {
                 jpql.append(" AND c.spirit.id = :spiritId"); // Conditional = only append if user chooses a spirit type
             }
 
             var query = em.createQuery(jpql.toString(), Cocktail.class)
                     .setParameter("familyId", familyId);
+
             if (spiritId != null) {
                 query.setParameter("spiritId", spiritId);
             }
@@ -54,8 +72,8 @@ public class CocktailDAO extends AbstractDAO<Cocktail, Long> {
 
             List<CocktailCandidate> candidates = new ArrayList<>();
             for (Cocktail cocktail : cocktails) {
-                Map<Long, Integer> profile = buildFlavorProfile(cocktail);
-                candidates.add(new CocktailCandidate(cocktail, profile));
+                candidates.add(new CocktailCandidate
+                        (cocktail, buildFlavorProfile(cocktail)));
             }
 
             return candidates;
@@ -121,4 +139,6 @@ public class CocktailDAO extends AbstractDAO<Cocktail, Long> {
 
         return ranked;
     }
+
+
 }
