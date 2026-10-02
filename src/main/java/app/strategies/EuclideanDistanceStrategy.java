@@ -9,7 +9,6 @@ import java.util.Set;
  * (Pythagoras generalized to 5 dimensions: sweet, sour, bitter, salty, spicy).
  * Lower distance = better match!
  * Example: two identical profiles result in a distance of 0.
- *
  * Reason for name: Euclidean Distance is the Greek name of this mathematical equation.
  * Another also correct name could be StraightLineDistanceStrategy
  */
