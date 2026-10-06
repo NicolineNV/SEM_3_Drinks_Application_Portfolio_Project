@@ -2,6 +2,7 @@ package app.dao;
 
 import app.entities.*;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 
 import java.util.*;
 
@@ -26,6 +27,10 @@ public class CocktailDAO extends AbstractDAO<Cocktail, Long> {
 
     public CocktailDAO(){
         super(Cocktail.class);
+    }
+
+    public CocktailDAO (EntityManagerFactory emf) {
+        super(Cocktail.class, emf);
     }
 
     public Optional<Cocktail> getByIdWithDetails(Long id) {

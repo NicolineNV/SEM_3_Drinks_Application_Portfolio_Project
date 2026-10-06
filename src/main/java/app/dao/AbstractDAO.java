@@ -15,11 +15,17 @@ public abstract class AbstractDAO <T, ID> implements IDAO<T, ID> {
 
     private static final Logger logger = LoggerFactory.getLogger(AbstractDAO.class);
 
-    protected final EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
+    protected final EntityManagerFactory emf;
     private final Class<T> entityClass;
 
     protected AbstractDAO(Class<T> entityClass){
+        this(entityClass, HibernateConfig.getEntityManagerFactory());
+    }
+
+    // For Test - Dependency injection - give AbstractDAO the possibility to receive an EntityManagerFactory
+    protected AbstractDAO(Class<T> entityClass, EntityManagerFactory emf){
         this.entityClass = entityClass;
+        this.emf = emf;
     }
 
     @Override

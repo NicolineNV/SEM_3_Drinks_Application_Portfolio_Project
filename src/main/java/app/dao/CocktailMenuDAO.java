@@ -3,6 +3,7 @@ package app.dao;
 import app.entities.CocktailMenu;
 import app.entities.CocktailMenuId;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 
 import java.util.List;
 
@@ -10,6 +11,10 @@ public class CocktailMenuDAO extends AbstractDAO<CocktailMenu, CocktailMenuId> {
 
     public CocktailMenuDAO() {
         super(CocktailMenu.class);
+    }
+
+    public CocktailMenuDAO (EntityManagerFactory emf) {
+        super(CocktailMenu.class, emf);
     }
 
     public List<CocktailMenu> getFavoritesByUser(Long userId) {

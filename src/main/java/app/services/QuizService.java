@@ -33,7 +33,7 @@ public class QuizService {
 
         if (candidates.isEmpty()) {
             throw new ApiException(HttpStatus.NOT_FOUND,
-                    "No recipes matches the chosen cocktail-family/spirit-type");
+                    "No recipes match the chosen cocktail family/spirit type");
         }
 
         CocktailCandidate bestMatch = null;

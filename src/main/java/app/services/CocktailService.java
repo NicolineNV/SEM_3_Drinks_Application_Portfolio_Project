@@ -55,14 +55,14 @@ public class CocktailService {
     public CocktailDTO createCocktail(CreateCocktailDTO request, UserDTO admin) {
 
         if (!userService.isAdmin(admin)) {
-            throw new ApiException(HttpStatus.FORBIDDEN, "Only admin can create new cocktails");
+            throw new ApiException(HttpStatus.FORBIDDEN, "Only admins can create new cocktails");
         }
 
         if (request.getSpiritId() == null && request.getLiqueurId() == null
                 && request.getMixerId() == null && request.getSyrupId() == null) {
 
             throw new ApiException(HttpStatus.BAD_REQUEST,
-                    "A cocktail shall have at least one ingredient (spirit, liqueur, mixer or syrup)");
+                    "A cocktail must have at least one ingredient (spirit, liqueur, mixer or syrup)");
         }
 
         CocktailFamily family = cocktailFamilyDAO.getById(request.getCocktailFamilyId())

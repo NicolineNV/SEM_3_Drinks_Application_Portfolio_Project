@@ -23,7 +23,7 @@ public class CocktailMenuService {
     public CocktailDTO saveFavorite (Long userId, Long cocktailId) {
         CocktailMenuId id = new CocktailMenuId(userId, cocktailId);
         if (cocktailMenuDAO.getById(id).isPresent()) {
-            throw new ApiException(HttpStatus.CONFLICT, "The cocktail is already saved as a favorit");
+            throw new ApiException(HttpStatus.CONFLICT, "The cocktail is already saved as a favorite");
         }
         User user = userDAO.getById(userId)
                 .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "User does not exist: " + userId));
