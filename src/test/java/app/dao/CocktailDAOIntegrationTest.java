@@ -108,7 +108,7 @@ class CocktailDAOIntegrationTest extends IntegrationTestBase{
         List<CocktailCandidate> candidates = cocktailDAO.getCandidatesForQuiz(sours.getId(), null);
 
         assertEquals(1, candidates.size());
-        assertEquals("Whiskey Sour", candidates.get(0).getCocktail().getName());
+        assertEquals("Whiskey Sour", candidates.getFirst().getCocktail().getName());
     }
 
     @Test // Test the "can choose preferred spirit" logic - users choice
@@ -123,7 +123,7 @@ class CocktailDAOIntegrationTest extends IntegrationTestBase{
         List<CocktailCandidate> anySpirit = cocktailDAO.getCandidatesForQuiz(family.getId(), null);
 
         assertEquals(1, onlyWhiskey.size());
-        assertEquals("Old Fashioned", onlyWhiskey.get(0).getCocktail().getName());
+        assertEquals("Old Fashioned", onlyWhiskey.getFirst().getCocktail().getName());
         assertEquals(2, anySpirit.size());
     }
 
@@ -164,7 +164,7 @@ class CocktailDAOIntegrationTest extends IntegrationTestBase{
         List<CocktailCandidate> candidates = cocktailDAO.getCandidatesForQuiz(family.getId(), null);
 
         assertEquals(1, candidates.size());
-        Map<Long, Integer> profile = candidates.get(0).getFlavorProfile();
+        Map<Long, Integer> profile = candidates.getFirst().getFlavorProfile();
 
         // Sums: Sweet 6, Bitter 5, Sour 3, Salty 2, Spicy 2
         // Ranking: Sweet 5, Bitter 4, Sour 3, Salty 2, Spicy 1
