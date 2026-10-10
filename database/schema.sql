@@ -72,28 +72,28 @@ CREATE TABLE garnish (
 CREATE TABLE spirit_flavor_tag (
     spirit_id     BIGINT  NOT NULL REFERENCES spirit(id)     ON DELETE CASCADE,
     flavor_tag_id BIGINT  NOT NULL REFERENCES flavor_tag(id) ON DELETE CASCADE,
-    intensity     SMALLINT NOT NULL CHECK (intensity BETWEEN 1 AND 5),
+    intensity     INTEGER NOT NULL CHECK (intensity BETWEEN 1 AND 5),
     PRIMARY KEY (spirit_id, flavor_tag_id)
 );
 
 CREATE TABLE liqueur_flavor_tag (
     liqueur_id    BIGINT  NOT NULL REFERENCES liqueur(id)    ON DELETE CASCADE,
     flavor_tag_id BIGINT  NOT NULL REFERENCES flavor_tag(id) ON DELETE CASCADE,
-    intensity     SMALLINT NOT NULL CHECK (intensity BETWEEN 1 AND 5),
+    intensity     INTEGER NOT NULL CHECK (intensity BETWEEN 1 AND 5),
     PRIMARY KEY (liqueur_id, flavor_tag_id)
 );
 
 CREATE TABLE mixer_flavor_tag (
     mixer_id      BIGINT  NOT NULL REFERENCES mixer(id)      ON DELETE CASCADE,
     flavor_tag_id BIGINT  NOT NULL REFERENCES flavor_tag(id) ON DELETE CASCADE,
-    intensity     SMALLINT NOT NULL CHECK (intensity BETWEEN 1 AND 5),
+    intensity     INTEGER NOT NULL CHECK (intensity BETWEEN 1 AND 5),
     PRIMARY KEY (mixer_id, flavor_tag_id)
 );
 
 CREATE TABLE syrup_flavor_tag (
     syrup_id      BIGINT  NOT NULL REFERENCES syrup(id)      ON DELETE CASCADE,
     flavor_tag_id BIGINT  NOT NULL REFERENCES flavor_tag(id) ON DELETE CASCADE,
-    intensity     SMALLINT NOT NULL CHECK (intensity BETWEEN 1 AND 5),
+    intensity     INTEGER NOT NULL CHECK (intensity BETWEEN 1 AND 5),
     PRIMARY KEY (syrup_id, flavor_tag_id)
 );
 

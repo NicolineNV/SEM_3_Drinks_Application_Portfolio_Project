@@ -1,0 +1,133 @@
+canonical,type,sweet,sour,bitter,salty,spicy
+Gin,SPIRIT,1,1,2,1,2
+Vodka,SPIRIT,1,1,1,1,1
+White Rum,SPIRIT,2,1,1,1,1
+Dark Rum,SPIRIT,3,1,2,1,2
+Overproof Rum,SPIRIT,2,1,1,1,3
+Spiced Rum,SPIRIT,3,1,1,1,3
+Tequila,SPIRIT,1,1,2,1,3
+Brandy,SPIRIT,3,1,2,1,1
+Apple Brandy,SPIRIT,3,2,1,1,1
+Scotch,SPIRIT,1,1,3,1,2
+Bourbon,SPIRIT,3,1,2,1,2
+Rye Whiskey,SPIRIT,2,1,3,1,3
+Irish Whiskey,SPIRIT,2,1,2,1,1
+Whiskey,SPIRIT,2,1,3,1,2
+Cachaca,SPIRIT,2,1,2,1,2
+Absinthe,SPIRIT,1,1,4,1,3
+Grain Alcohol,SPIRIT,1,1,1,1,2
+Triple Sec,LIQUEUR,4,2,2,1,1
+Blue Curacao,LIQUEUR,4,2,2,1,1
+Grand Marnier,LIQUEUR,4,2,2,1,1
+Coffee Liqueur,LIQUEUR,4,1,3,1,1
+Irish Cream,LIQUEUR,4,1,1,1,1
+Amaretto,LIQUEUR,4,1,2,1,1
+Maraschino Liqueur,LIQUEUR,4,1,2,1,1
+Raspberry Liqueur,LIQUEUR,4,2,1,1,1
+Creme de Cassis,LIQUEUR,4,2,1,1,1
+Blackberry Liqueur,LIQUEUR,4,2,1,1,1
+Cherry Liqueur,LIQUEUR,4,2,1,1,1
+Apricot Brandy,LIQUEUR,4,2,1,1,1
+Peach Schnapps,LIQUEUR,4,1,1,1,1
+Creme de Cacao,LIQUEUR,4,1,2,1,1
+Creme de Menthe,LIQUEUR,4,1,1,1,3
+Banana Liqueur,LIQUEUR,4,1,1,1,1
+Melon Liqueur,LIQUEUR,4,1,1,1,1
+Coconut Liqueur,LIQUEUR,4,1,1,1,1
+Passion Fruit Liqueur,LIQUEUR,4,2,1,1,1
+Frangelico,LIQUEUR,4,1,2,1,1
+Galliano,LIQUEUR,4,1,2,1,2
+Benedictine,LIQUEUR,4,1,2,1,3
+Drambuie,LIQUEUR,4,1,1,1,3
+Green Chartreuse,LIQUEUR,3,1,4,1,4
+Sambuca,LIQUEUR,4,1,2,1,3
+Campari,LIQUEUR,3,1,5,1,2
+Cinnamon Schnapps,LIQUEUR,4,1,1,1,5
+Jagermeister,LIQUEUR,3,1,4,1,3
+Southern Comfort,LIQUEUR,4,2,1,1,2
+Sloe Gin,LIQUEUR,4,3,1,1,1
+Sweet Vermouth,LIQUEUR,3,1,3,1,2
+Dry Vermouth,LIQUEUR,1,1,3,1,2
+Vermouth,LIQUEUR,2,1,3,1,2
+Lillet Blanc,LIQUEUR,3,2,2,1,1
+Port,LIQUEUR,4,1,2,1,1
+Sherry,LIQUEUR,3,1,2,1,1
+Lemon Juice,MIXER,1,5,1,1,1
+Lime Juice,MIXER,1,5,1,1,1
+Orange Juice,MIXER,4,3,1,1,1
+Pineapple Juice,MIXER,4,3,1,1,1
+Cranberry Juice,MIXER,3,4,2,1,1
+Grapefruit Juice,MIXER,2,4,3,1,1
+Apple Juice,MIXER,4,2,1,1,1
+Passion Fruit Juice,MIXER,4,4,1,1,1
+Tomato Juice,MIXER,2,2,1,3,2
+Grape Juice,MIXER,4,2,1,1,1
+Fruit Punch,MIXER,4,2,1,1,1
+Sweet and Sour,MIXER,3,4,1,1,1
+Lemonade,MIXER,3,4,1,1,1
+Soda Water,MIXER,1,1,1,1,1
+Tonic Water,MIXER,2,2,4,1,1
+Ginger Ale,MIXER,4,1,1,1,3
+Ginger Beer,MIXER,3,1,1,1,4
+Cola,MIXER,5,1,2,1,1
+Lemon-Lime Soda,MIXER,5,2,1,1,1
+Root Beer,MIXER,5,1,1,1,1
+Milk,MIXER,2,1,1,1,1
+Cream,MIXER,2,1,1,1,1
+Condensed Milk,MIXER,5,1,1,1,1
+Yoghurt,MIXER,2,3,1,1,1
+Coffee,MIXER,1,1,4,1,1
+Tea,MIXER,1,1,3,1,1
+Tabasco Sauce,MIXER,1,1,1,2,5
+Beer,MIXER,2,1,3,1,1
+Red Wine,MIXER,2,2,3,1,1
+White Wine,MIXER,2,3,1,1,1
+Sparkling Wine,MIXER,2,3,1,1,1
+Sugar,SYRUP,5,1,1,1,1
+Sugar Syrup,SYRUP,5,1,1,1,1
+Grenadine,SYRUP,5,2,1,1,1
+Honey,SYRUP,5,1,1,1,1
+Orgeat Syrup,SYRUP,5,1,1,1,1
+Chocolate Syrup,SYRUP,5,1,2,1,1
+Raspberry Syrup,SYRUP,5,2,1,1,1
+Rosemary Syrup,SYRUP,5,1,1,1,2
+Elderflower Cordial,SYRUP,5,2,1,1,1
+Lemon,GARNISH,,,,,
+Lime,GARNISH,,,,,
+Orange,GARNISH,,,,,
+Pineapple,GARNISH,,,,,
+Maraschino Cherry,GARNISH,,,,,
+Olive,GARNISH,,,,,
+Mint,GARNISH,,,,,
+Nutmeg,GARNISH,,,,,
+Cinnamon,GARNISH,,,,,
+Cloves,GARNISH,,,,,
+Ginger,GARNISH,,,,,
+Strawberry,GARNISH,,,,,
+Apple,GARNISH,,,,,
+Kiwi,GARNISH,,,,,
+Mango,GARNISH,,,,,
+Banana,GARNISH,,,,,
+Blackberry,GARNISH,,,,,
+Whipped Cream,GARNISH,,,,,
+Citrus Peel,GARNISH,,,,,
+Chocolate,GARNISH,,,,,
+Cocoa Powder,GARNISH,,,,,
+Rosemary,GARNISH,,,,,
+Ice,IGNORE,,,,,
+Water,IGNORE,,,,,
+Egg White,IGNORE,,,,,
+Egg,IGNORE,,,,,
+Egg Yolk,IGNORE,,,,,
+Salt,IGNORE,,,,,
+Vanilla Extract,IGNORE,,,,,
+Bitters,IGNORE,,,,,
+Cardamom,IGNORE,,,,,
+Pepper,IGNORE,,,,,
+Cucumber,GARNISH,,,,,
+Thyme,GARNISH,,,,,
+Lavender,GARNISH,,,,,
+Fig,GARNISH,,,,,
+Papaya,GARNISH,,,,,
+Marshmallow,GARNISH,,,,,
+Rose,GARNISH,,,,,

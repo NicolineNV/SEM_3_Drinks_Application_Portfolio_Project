@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-@AllArgsConstructor
 
 @Getter
 
@@ -23,6 +22,11 @@ public class Garnish {
 
     @Column(columnDefinition = "TEXT")
     private String description;
+
+    public Garnish(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public void setName(String name){
         this.name = name;

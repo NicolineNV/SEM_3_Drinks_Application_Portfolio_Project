@@ -1,0 +1,817 @@
+[ {
+  "name" : "ABC",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Amaretto + Irish Cream"
+}, {
+  "name" : "Ace",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Cream + Milk"
+}, {
+  "name" : "ACID",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Overproof Rum + Bourbon"
+}, {
+  "name" : "AT&T",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Vodka + Gin"
+}, {
+  "name" : "Affair",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Orange Juice + Cranberry Juice"
+}, {
+  "name" : "Avalon",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Apple Juice + Lemon Juice"
+}, {
+  "name" : "Apello",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Orange Juice + Grapefruit Juice"
+}, {
+  "name" : "Abilene",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Peach nectar"
+}, {
+  "name" : "Affinity",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Sweet Vermouth + Dry Vermouth"
+}, {
+  "name" : "Allegheny",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Dry Vermouth + Blackberry Liqueur"
+}, {
+  "name" : "Americano",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Campari + Sweet Vermouth"
+}, {
+  "name" : "Afterglow",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Orange Juice + Pineapple Juice"
+}, {
+  "name" : "Addington",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Sweet Vermouth + Dry Vermouth"
+}, {
+  "name" : "B-52",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Irish Cream + Grand Marnier"
+}, {
+  "name" : "B-53",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Coffee Liqueur + Sambuca"
+}, {
+  "name" : "Bijou",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Green Chartreuse + Sweet Vermouth"
+}, {
+  "name" : "Big Red",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Irish Cream + Cinnamon Schnapps"
+}, {
+  "name" : "Bluebird",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Triple Sec + Blue Curacao"
+}, {
+  "name" : "Balmoral",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Sweet Vermouth + Dry Vermouth"
+}, {
+  "name" : "Brooklyn",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Dry Vermouth + Maraschino Liqueur"
+}, {
+  "name" : "Barracuda",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Pineapple Juice + Lime Juice"
+}, {
+  "name" : "Broadside",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Overproof Rum + Scotch"
+}, {
+  "name" : "Brigadier",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Hot Chocolate"
+}, {
+  "name" : "Boomerang",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Dry Vermouth + Maraschino Liqueur"
+}, {
+  "name" : "Bora Bora",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Pineapple Juice + Passion Fruit Juice"
+}, {
+  "name" : "Bible Belt",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Southern Comfort + Triple Sec"
+}, {
+  "name" : "Brain Fart",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Grain Alcohol + Vodka"
+}, {
+  "name" : "Blackthorn",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Sweet Vermouth + Sloe Gin"
+}, {
+  "name" : "Bob Marley",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Melon Liqueur + Jagermeister"
+}, {
+  "name" : "Bubble Gum",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Banana Liqueur + Peach Schnapps"
+}, {
+  "name" : "Bumble Bee",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Irish Cream + Coffee Liqueur"
+}, {
+  "name" : "Bahama Mama",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: White Rum + Dark Rum"
+}, {
+  "name" : "Cafe Savoy",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Coffee + Milk"
+}, {
+  "name" : "Casa Blanca",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Triple Sec + Maraschino Liqueur"
+}, {
+  "name" : "Cosmopolitan",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lime Juice + Cranberry Juice"
+}, {
+  "name" : "Coffee-Vodka",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Caramel coloring"
+}, {
+  "name" : "Corpse Reviver",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Triple Sec + Lillet Blanc"
+}, {
+  "name" : "Chocolate Milk",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Creme de Cacao + Amaretto"
+}, {
+  "name" : "Clove Cocktail",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Sweet Vermouth + Sloe Gin"
+}, {
+  "name" : "Coke and Drops",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Cola + Lemon Juice"
+}, {
+  "name" : "Cranberry Punch",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Cranberry Juice + Pineapple Juice"
+}, {
+  "name" : "Diesel",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Cider"
+}, {
+  "name" : "Downshift",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Fruit Punch + Lemon-Lime Soda"
+}, {
+  "name" : "Dirty Nipple",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Coffee Liqueur + Sambuca"
+}, {
+  "name" : "Dirty Martini",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Olive Brine"
+}, {
+  "name" : "Darkwood Sling",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Soda Water + Orange Juice"
+}, {
+  "name" : "Duchamp's Punch",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SYRUP: Sugar Syrup + Elderflower Cordial"
+}, {
+  "name" : "Drinking Chocolate",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Cream + Milk"
+}, {
+  "name" : "Egg Cream",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Milk + Soda Water"
+}, {
+  "name" : "Egg Nog #4",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: White Rum + Bourbon"
+}, {
+  "name" : "English Highball",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Brandy + Gin"
+}, {
+  "name" : "Egg Nog - Healthy",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Condensed Milk + Milk"
+}, {
+  "name" : "English Rose Cocktail",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Apricot Brandy + Dry Vermouth"
+}, {
+  "name" : "Empellón Cocina's Fat-Washed Mezcal",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Creme de Cacao + Coffee Liqueur"
+}, {
+  "name" : "Frappé",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Coffee + Milk"
+}, {
+  "name" : "Foxy Lady",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Amaretto + Creme de Cacao"
+}, {
+  "name" : "French 75",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon Juice + Sparkling Wine"
+}, {
+  "name" : "Fruit Shake",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Yoghurt + Orange Juice"
+}, {
+  "name" : "Fruit Cooler",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Apple Juice + Soda Water"
+}, {
+  "name" : "Freddy Kruger",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Jagermeister + Sambuca"
+}, {
+  "name" : "Funk and Soul",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Apricot Nectar"
+}, {
+  "name" : "French Negroni",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Lillet Blanc + Sweet Vermouth"
+}, {
+  "name" : "Fruit Flip-Flop",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Fruit juice"
+}, {
+  "name" : "Flaming Dr. Pepper",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Vodka + Overproof Rum"
+}, {
+  "name" : "Flaming Lamborghini",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Coffee Liqueur + Sambuca"
+}, {
+  "name" : "Gin Daisy",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SYRUP: Sugar + Grenadine"
+}, {
+  "name" : "Gin Squirt",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SYRUP: Grenadine + Sugar"
+}, {
+  "name" : "Grand Blue",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Coconut Liqueur + Peach Schnapps"
+}, {
+  "name" : "Gin Swizzle",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lime Juice + Soda Water"
+}, {
+  "name" : "Grasshopper",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Creme de Menthe + Creme de Cacao"
+}, {
+  "name" : "Halloween Punch",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Cherry Juice"
+}, {
+  "name" : "Havana Cocktail",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Pineapple Juice + Lemon Juice"
+}, {
+  "name" : "Holloween Punch",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Carbonated soft drink"
+}, {
+  "name" : "Homemade Kahlua",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SYRUP: Sugar + Sugar Syrup"
+}, {
+  "name" : "Hemingway Special",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Grapefruit Juice + Lime Juice"
+}, {
+  "name" : "Hot Chocolate to Die for",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Butter"
+}, {
+  "name" : "Ipamena",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Passion Fruit Juice + Ginger Ale"
+}, {
+  "name" : "Ice Pick",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Tea + Lemon Juice"
+}, {
+  "name" : "Iced Coffee",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Coffee + Milk"
+}, {
+  "name" : "Irish Cream",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Cream + Condensed Milk"
+}, {
+  "name" : "Irish Spring",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Orange Juice + Sweet and Sour"
+}, {
+  "name" : "Imperial Fizz",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: White Rum + Whiskey"
+}, {
+  "name" : "Irish Russian",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Cola + Beer"
+}, {
+  "name" : "Irish Curdling Cow",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Bourbon + Vodka"
+}, {
+  "name" : "Jam Donut",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Irish Cream + Raspberry Liqueur"
+}, {
+  "name" : "Jitterbug",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Gin + Vodka"
+}, {
+  "name" : "Jelly Bean",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Blackberry Liqueur + Sambuca"
+}, {
+  "name" : "Jello shots",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Jello"
+}, {
+  "name" : "John Collins",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon Juice + Soda Water"
+}, {
+  "name" : "Just a Moonmint",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SYRUP: Chocolate Syrup + Sugar Syrup"
+}, {
+  "name" : "Kiss me Quick",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Apfelkorn"
+}, {
+  "name" : "Kool-Aid Shot",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Amaretto + Sloe Gin"
+}, {
+  "name" : "Kiwi Papaya Smoothie",
+  "reason" : "NO_INGREDIENTS_AFTER_IGNORE",
+  "detail" : ""
+}, {
+  "name" : "Kill the cold Smoothie",
+  "reason" : "NO_INGREDIENTS_AFTER_IGNORE",
+  "detail" : ""
+}, {
+  "name" : "Lunch Box",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Beer + Orange Juice"
+}, {
+  "name" : "Lemon Shot",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Vodka + Overproof Rum"
+}, {
+  "name" : "Lassi Khara",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Asafoetida"
+}, {
+  "name" : "Loch Lomond",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Drambuie + Dry Vermouth"
+}, {
+  "name" : "Lassi - Sweet",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Yoghurt + Lemon Juice"
+}, {
+  "name" : "Lady Love Fizz",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Cream + Soda Water"
+}, {
+  "name" : "Long Island Tea",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Vodka + White Rum"
+}, {
+  "name" : "Lazy Coconut Paloma",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Grapefruit Juice + Soda Water"
+}, {
+  "name" : "Long Island Iced Tea",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Vodka + Tequila"
+}, {
+  "name" : "Lemon Elderflower Spritzer",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Soda Water + Lemon Juice"
+}, {
+  "name" : "Lassi - A South Indian Drink",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Cumin seed"
+}, {
+  "name" : "Mimosa",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Sparkling Wine + Orange Juice"
+}, {
+  "name" : "Michelada",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Beer + Tomato Juice"
+}, {
+  "name" : "Mudslinger",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Orange Juice + Cola"
+}, {
+  "name" : "Martinez 2",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Sweet Vermouth + Maraschino Liqueur"
+}, {
+  "name" : "Moranguito",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Absinthe + Tequila"
+}, {
+  "name" : "Miami Vice",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Pina colada mix"
+}, {
+  "name" : "Moscow Mule",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lime Juice + Ginger Ale"
+}, {
+  "name" : "Masala Chai",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Tea + Milk"
+}, {
+  "name" : "Munich Mule",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lime Juice + Ginger Beer"
+}, {
+  "name" : "Mojito Extra",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon Juice + Soda Water"
+}, {
+  "name" : "Midnight Mint",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Irish Cream + Creme de Menthe"
+}, {
+  "name" : "Negroni",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Campari + Sweet Vermouth"
+}, {
+  "name" : "Nutty Irishman",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Irish Cream + Frangelico"
+}, {
+  "name" : "National Aquarium",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: White Rum + Vodka"
+}, {
+  "name" : "New York Lemonade",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon Juice + Soda Water"
+}, {
+  "name" : "Orgasm",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Creme de Cacao + Amaretto"
+}, {
+  "name" : "Old Pal",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Campari + Dry Vermouth"
+}, {
+  "name" : "Old Cuban",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lime Juice + Sparkling Wine"
+}, {
+  "name" : "Orangeade",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon Juice + Orange Juice"
+}, {
+  "name" : "Orange Whip",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: White Rum + Vodka"
+}, {
+  "name" : "Orange Oasis",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Orange Juice + Ginger Ale"
+}, {
+  "name" : "Oreo Mudslide",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Coffee Liqueur + Irish Cream"
+}, {
+  "name" : "Oatmeal Cookie",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Coffee Liqueur + Irish Cream"
+}, {
+  "name" : "Orange Push-up",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Orange Juice + Sweet and Sour"
+}, {
+  "name" : "Orange Rosemary Collins",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Orange Juice + Lemon Juice"
+}, {
+  "name" : "Orange Scented Hot Chocolate",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Milk + Coffee"
+}, {
+  "name" : "Owen's Grandmother's Revenge",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Beer + Lemonade"
+}, {
+  "name" : "Penicillin",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SYRUP: Honey + Sugar Syrup"
+}, {
+  "name" : "Pink Penocha",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Grain Alcohol + Vodka"
+}, {
+  "name" : "Popped cherry",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Cranberry Juice + Orange Juice"
+}, {
+  "name" : "Planter's Punch",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Orange Juice + Pineapple Juice"
+}, {
+  "name" : "Pineapple Paloma",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Grapefruit Juice + Lime Juice"
+}, {
+  "name" : "Pornstar Martini",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Passion Fruit Juice + Sparkling Wine"
+}, {
+  "name" : "Planter’s Punch",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Orange Juice + Pineapple Juice"
+}, {
+  "name" : "Pysch Vitamin Light",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Orange Juice + Apple Juice"
+}, {
+  "name" : "Pink Panty Pulldowns",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon-Lime Soda + Lemonade"
+}, {
+  "name" : "Pineapple Gingerale Smoothie",
+  "reason" : "NO_INGREDIENTS_AFTER_IGNORE",
+  "detail" : ""
+}, {
+  "name" : "Queen Bee",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Coffee Liqueur + Sherry"
+}, {
+  "name" : "Quick F**K",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Coffee Liqueur + Melon Liqueur"
+}, {
+  "name" : "Queen Charlotte",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Red Wine + Lemon-Lime Soda"
+}, {
+  "name" : "Queen Elizabeth",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Dry Vermouth + Benedictine"
+}, {
+  "name" : "Quaker's Cocktail",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: White Rum + Brandy"
+}, {
+  "name" : "Rose",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Dry Vermouth + Apricot Brandy"
+}, {
+  "name" : "Radler",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Beer + Lemon-Lime Soda"
+}, {
+  "name" : "Rum Punch",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Ginger Ale + Fruit Punch"
+}, {
+  "name" : "Royal Fizz",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Sweet and Sour + Cola"
+}, {
+  "name" : "Rum Runner",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Coconut Liqueur + Blackberry Liqueur"
+}, {
+  "name" : "Royal Flush",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Peach Schnapps + Raspberry Liqueur"
+}, {
+  "name" : "Rail Splitter",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon Juice + Ginger Ale"
+}, {
+  "name" : "Ramos Gin Fizz",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon Juice + Cream"
+}, {
+  "name" : "Rum Old-fashioned",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: White Rum + Overproof Rum"
+}, {
+  "name" : "Radioactive Long Island Iced Tea",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: White Rum + Vodka"
+}, {
+  "name" : "Smut",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Red Wine + Cola"
+}, {
+  "name" : "Spritz",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Sparkling Wine + Soda Water"
+}, {
+  "name" : "Sangria",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Red Wine + Orange Juice"
+}, {
+  "name" : "Sazerac",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Absinthe + Bourbon"
+}, {
+  "name" : "Snowday",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Amaro Montenegro"
+}, {
+  "name" : "Spice 75",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Allspice"
+}, {
+  "name" : "Snowball",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Advocaat"
+}, {
+  "name" : "Shot-gun",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Bourbon + Whiskey"
+}, {
+  "name" : "Stone Sour",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Orange Juice + Sweet and Sour"
+}, {
+  "name" : "Sea breeze",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Cranberry Juice + Grapefruit Juice"
+}, {
+  "name" : "Space Odyssey",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Pineapple Juice + Orange Juice"
+}, {
+  "name" : "Sweet Sangria",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Red Wine + Lemon-Lime Soda"
+}, {
+  "name" : "Thriller",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Wine"
+}, {
+  "name" : "The Galah",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Campari + Banana Liqueur"
+}, {
+  "name" : "Tipperary",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Sweet Vermouth + Green Chartreuse"
+}, {
+  "name" : "Texas Sling",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Coffee Liqueur + Irish Cream"
+}, {
+  "name" : "Thai Coffee",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Coriander"
+}, {
+  "name" : "Tom Collins",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon Juice + Soda Water"
+}, {
+  "name" : "Tomato Tang",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Tomato Juice + Lemon Juice"
+}, {
+  "name" : "Tequila Fizz",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon Juice + Ginger Ale"
+}, {
+  "name" : "Thai Iced Tea",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Tea + Condensed Milk"
+}, {
+  "name" : "The Last Word",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Green Chartreuse + Maraschino Liqueur"
+}, {
+  "name" : "Turf Cocktail",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Dry Vermouth + Sambuca"
+}, {
+  "name" : "The Philosopher",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon Juice + Sparkling Wine"
+}, {
+  "name" : "Tuxedo Cocktail",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Dry Vermouth + Maraschino Liqueur"
+}, {
+  "name" : "Thai Iced Coffee",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Coffee + Cream"
+}, {
+  "name" : "Texas Rattlesnake",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Cherry Liqueur + Southern Comfort"
+}, {
+  "name" : "Vesper",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Gin + Vodka"
+}, {
+  "name" : "Victor",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: Gin + Brandy"
+}, {
+  "name" : "Vampiro",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Tomato Juice + Orange Juice"
+}, {
+  "name" : "Vodka Fizz",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Cream + Lemonade"
+}, {
+  "name" : "Vodka Slime",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon-Lime Soda + Lime Juice"
+}, {
+  "name" : "Vodka Russian",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Schweppes Russchian"
+}, {
+  "name" : "Vermouth Cassis",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Dry Vermouth + Creme de Cassis"
+}, {
+  "name" : "Victory Collins",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lemon Juice + Grape Juice"
+}, {
+  "name" : "Whisky Mac",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Wine"
+}, {
+  "name" : "Wine Punch",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Red Wine + Orange Juice"
+}, {
+  "name" : "Wine Cooler",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Red Wine + Lemon-Lime Soda"
+}, {
+  "name" : "Winter Rita",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Lime Juice + Orange Juice"
+}, {
+  "name" : "Winter Paloma",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Grapefruit Juice + Lime Juice"
+}, {
+  "name" : "White Wine Sangria",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: White Wine + Soda Water"
+}, {
+  "name" : "Whitecap Margarita",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Cream of coconut"
+}, {
+  "name" : "Yellow Bird",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Galliano + Triple Sec"
+}, {
+  "name" : "Yoghurt Cooler",
+  "reason" : "UNCLASSIFIED_INGREDIENT",
+  "detail" : "Fruit"
+}, {
+  "name" : "Zorro",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "LIQUEUR: Sambuca + Irish Cream"
+}, {
+  "name" : "Zoksel",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "MIXER: Beer + Root Beer"
+}, {
+  "name" : "Zombie",
+  "reason" : "TOO_MANY_OF_TYPE",
+  "detail" : "SPIRIT: White Rum + Dark Rum"
+} ]
