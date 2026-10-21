@@ -7,6 +7,7 @@ import app.dto.UserDTO;
 import app.entities.*;
 import app.exceptions.ApiException;
 import io.javalin.http.HttpStatus;
+import jakarta.persistence.EntityManagerFactory;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,7 +33,18 @@ public class CocktailService {
         this.syrupDAO = new SyrupDAO();
         this.garnishDAO = new GarnishDAO();
         this.userService = new UserService();
+    }
 
+    // Extra constructor for REST TEST
+    public CocktailService (EntityManagerFactory emf) {
+        this.cocktailDAO = new CocktailDAO(emf);
+        this.cocktailFamilyDAO = new CocktailFamilyDAO(emf);
+        this.spiritDAO = new SpiritDAO(emf);
+        this.liqueurDAO = new LiqueurDAO(emf);
+        this.mixerDAO = new MixerDAO(emf);
+        this.syrupDAO = new SyrupDAO(emf);
+        this.garnishDAO = new GarnishDAO(emf);
+        this.userService = new UserService(emf);
     }
 
 

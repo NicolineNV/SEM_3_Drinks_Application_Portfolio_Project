@@ -6,6 +6,7 @@ import app.entities.Role;
 import app.entities.User;
 import app.exceptions.ApiException;
 import io.javalin.http.HttpStatus;
+import jakarta.persistence.EntityManagerFactory;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,10 @@ public class UserService {
 
     public UserService(){
         this.userDAO = new UserDAO();
+    }
+
+    public UserService(EntityManagerFactory emf){
+        this.userDAO = new UserDAO(emf);
     }
 
     public UserDTO register(String username, String email, String rawPassword) {
