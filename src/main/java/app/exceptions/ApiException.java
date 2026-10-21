@@ -11,7 +11,11 @@ public class ApiException extends RuntimeException {
     public ApiException(int code, String msg){
         super(msg);
         this.code = code;
-        logger.error("ApiException (code={}): {}", code, msg);
+        if (code >= 500) {
+            logger.error("ApiException (code={}): {}", code, msg);
+        } else {
+            logger.warn("ApiException (code={}): {}", code, msg);
+        }
     }
 
     public ApiException (HttpStatus status, String msg) {

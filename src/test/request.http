@@ -1,4 +1,7 @@
 ### GET request to example server
 GET localhost:7070/api/v1/cocktails/1
+###
 
+###
+GET localhost:7070/api/v1/routes
 ###

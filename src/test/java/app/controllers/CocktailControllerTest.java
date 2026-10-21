@@ -8,6 +8,7 @@ import app.dao.SpiritDAO;
 import app.entities.Cocktail;
 import app.entities.CocktailFamily;
 import app.entities.Spirit;
+import app.routes.Routes;
 import io.javalin.Javalin;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterAll;
@@ -22,19 +23,18 @@ public class CocktailControllerTest extends IntegrationTestBase {
     private static Javalin app;
 
     @BeforeAll
-    static void startServer() {
-        // IntegrationTestBase has already created emf
-        app = ApplicationConfig.startServer(0, emf); // port 0 = Javalin chooses an available port
+    static void setUpAll () {
+        Routes routes = new Routes(emf); // gets emf from IntegrationTestBase
+        app = new ApplicationConfig(routes).startServer(7777);
+
         RestAssured.baseURI = "http://localhost";
-        RestAssured.port = app.port();
+        RestAssured.port = 7777;
         RestAssured.basePath = "/api/v1";
     }
 
     @AfterAll
-    static void stopServer() {
-        if (app != null) {
-            app.stop();
-        }
+    static void tearDownAll() {
+        ApplicationConfig.stopServer(app);
     }
 
     @Test // Test that get cocktail by id request returns a cocktail

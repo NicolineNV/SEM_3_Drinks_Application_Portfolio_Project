@@ -1,4 +1,4 @@
-package app.config;
+package app.routes;
 
 import app.controllers.CocktailController;
 import io.javalin.apibuilder.EndpointGroup;
