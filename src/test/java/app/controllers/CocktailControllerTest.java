@@ -32,7 +32,9 @@ public class CocktailControllerTest extends IntegrationTestBase {
 
     @AfterAll
     static void stopServer() {
-        app.stop();
+        if (app != null) {
+            app.stop();
+        }
     }
 
     @Test // Test that get cocktail by id request returns a cocktail
