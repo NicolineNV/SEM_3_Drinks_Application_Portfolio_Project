@@ -23,4 +23,15 @@ public class Utils {
             throw new ApiException(500, String.format("Could not read property %s.", propName));
         }
     }
+
+
+    /**
+     * Reads a setting from an environment variable if it exists (used on the server),
+     * otherwise from config.properties (used locally).
+     * Keeps secrets out of the code and lets the same code run unchanged in both environments.
+     */
+    public static String setting(String key) {
+        String fromEnv = System.getenv(key);
+        return fromEnv != null ? fromEnv : Utils.getPropertyValue(key, "config.properties");
+    }
 }
