@@ -2,6 +2,8 @@ package app.config;
 
 import app.exceptions.ApiException;
 import app.routes.Routes;
+import app.security.AccessHandler;
+import app.security.AccessRole;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 import io.javalin.http.HttpStatus;
@@ -14,10 +16,12 @@ import java.util.Map;
 public class ApplicationConfig {
 
     private final Routes routes;
+    private final AccessHandler accessHandler;
     private static final Logger logger = LoggerFactory.getLogger(ApplicationConfig.class);
 
-    public ApplicationConfig(Routes routes) {
+    public ApplicationConfig(Routes routes, AccessHandler accessHandler) {
         this.routes = routes;
+        this.accessHandler = accessHandler;
     }
 
     public Javalin startServer (int port) {
@@ -25,8 +29,9 @@ public class ApplicationConfig {
             config.showJavalinBanner = false;
             config.router.apiBuilder(routes.getRoutes());
             config.router.contextPath = "/api/v1";
-            config.bundledPlugins.enableRouteOverview("/routes");
+            config.bundledPlugins.enableRouteOverview("/routes", AccessRole.ADMIN);
         })
+                .beforeMatched(accessHandler::handle)
                 .exception(ApiException.class, ApplicationConfig::apiExceptionHandler)
                 .exception(Exception.class, ApplicationConfig::generalExceptionHandler)
                 .exception(ValidationException.class, ApplicationConfig::validationExceptionHandler)
