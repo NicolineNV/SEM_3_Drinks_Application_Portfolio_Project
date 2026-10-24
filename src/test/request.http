@@ -1,7 +1,21 @@
-### GET request to example server
-GET localhost:7070/api/v1/cocktails/1
-###
+### Register
+POST http://localhost:7070/api/v1/auth/register
+Content-Type: application/json
 
-###
-GET localhost:7070/api/v1/routes
-###
+{ "username": "{{username}}", "email": "nicoline@example.com", "password": "{{password}}" }
+
+### Login (saves the token in a variable)
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{ "username": "{{username}}", "password": "{{password}}" }
+
+> {% client.global.set("token", response.body.token); %}
+
+### Route overview (admin only)
+GET {{host}}/routes
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### Public endpoint, no token needed
+GET {{host}}/cocktails/1

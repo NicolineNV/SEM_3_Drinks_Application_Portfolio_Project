@@ -9,6 +9,8 @@ dependency-reduced-pom.xml
 .env
 .env.*
 
+http-client.private.env.json
+
 # Logs
 *.log
 logs/

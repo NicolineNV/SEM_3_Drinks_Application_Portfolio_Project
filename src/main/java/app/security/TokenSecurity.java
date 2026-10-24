@@ -41,7 +41,7 @@ public class TokenSecurity {
     public TokenData verify(String token) {
         try {
             DecodedJWT jwt = verifier.verify(token);
-            return new TokenData(jwt.getSubject(), jwt.getClaim("role").toString());
+            return new TokenData(jwt.getSubject(), jwt.getClaim("role").asString());
         } catch (TokenExpiredException e) {
             throw new ApiException(HttpStatus.UNAUTHORIZED, "Token expired");
         } catch (JWTVerificationException e) {
