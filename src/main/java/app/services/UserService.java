@@ -28,6 +28,8 @@ public class UserService {
     public UserDTO register(String username, String email, String rawPassword) {
         if (userDAO.findByUsername(username).isPresent()) {
             throw new ApiException(HttpStatus.CONFLICT, "Username already in use: " + username);
+        } if (userDAO.findByEmail(email).isPresent()) {
+            throw new ApiException(HttpStatus.CONFLICT, "Email already in use: " + email);
         }
 
         String hashedPassword = BCrypt.hashpw(rawPassword, BCrypt.gensalt());

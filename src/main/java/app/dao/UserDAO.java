@@ -26,4 +26,14 @@ public class UserDAO extends AbstractDAO<User, Long> {
             return results.stream().findFirst();
         }
     }
+
+    public Optional<User> findByEmail(String email) {
+        try (EntityManager em = emf.createEntityManager()) {
+            String jpql = "SELECT u FROM User u WHERE u.email = :email";
+            List<User> results = em.createQuery(jpql, User.class)
+                    .setParameter("email", email)
+                    .getResultList();
+            return results.stream().findFirst();
+        }
+    }
 }

@@ -9,6 +9,8 @@ import app.entities.Cocktail;
 import app.entities.CocktailFamily;
 import app.entities.Spirit;
 import app.routes.Routes;
+import app.security.AccessHandler;
+import app.security.TokenSecurity;
 import io.javalin.Javalin;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterAll;
@@ -24,8 +26,9 @@ public class CocktailControllerTest extends IntegrationTestBase {
 
     @BeforeAll
     static void setUpAll () {
-        Routes routes = new Routes(emf); // gets emf from IntegrationTestBase
-        app = new ApplicationConfig(routes).startServer(7777);
+        TokenSecurity ts = new TokenSecurity("test-secret-test-secret-test-secret-1234", "test", 60_000);
+        Routes routes = new Routes(emf, ts); // gets emf from IntegrationTestBase
+        app = new ApplicationConfig(routes, new AccessHandler(ts)).startServer(7777);
 
         RestAssured.baseURI = "http://localhost";
         RestAssured.port = 7777;
