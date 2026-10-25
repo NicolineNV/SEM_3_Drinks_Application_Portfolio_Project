@@ -1,44 +1,17 @@
 package app.controllers;
 
-import app.config.ApplicationConfig;
 import app.dao.CocktailDAO;
 import app.dao.CocktailFamilyDAO;
-import app.dao.IntegrationTestBase;
 import app.dao.SpiritDAO;
 import app.entities.Cocktail;
 import app.entities.CocktailFamily;
 import app.entities.spirit.Spirit;
-import app.routes.Routes;
-import app.security.AccessHandler;
-import app.security.TokenSecurity;
-import io.javalin.Javalin;
-import io.restassured.RestAssured;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class CocktailControllerTest extends IntegrationTestBase {
-
-    private static Javalin app;
-
-    @BeforeAll
-    static void setUpAll () {
-        TokenSecurity ts = new TokenSecurity("test-secret-test-secret-test-secret-1234", "test", 60_000);
-        Routes routes = new Routes(emf, ts); // gets emf from IntegrationTestBase
-        app = new ApplicationConfig(routes, new AccessHandler(ts)).startServer(7777);
-
-        RestAssured.baseURI = "http://localhost";
-        RestAssured.port = 7777;
-        RestAssured.basePath = "/api/v1";
-    }
-
-    @AfterAll
-    static void tearDownAll() {
-        ApplicationConfig.stopServer(app);
-    }
+public class CocktailControllerTest extends RestTestBase {
 
     @Test // Test that get cocktail by id request returns a cocktail
     void getCocktailByIdReturnsCocktail() {

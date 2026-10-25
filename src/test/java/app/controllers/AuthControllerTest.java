@@ -1,15 +1,6 @@
 package app.controllers;
 
-import app.config.ApplicationConfig;
-import app.dao.IntegrationTestBase;
-import app.routes.Routes;
-import app.security.AccessHandler;
-import app.security.TokenSecurity;
-import io.javalin.Javalin;
-import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -18,25 +9,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AuthControllerTest extends IntegrationTestBase {
-
-    private static Javalin app;
-
-    @BeforeAll
-    static void startServer() {
-        TokenSecurity ts = new TokenSecurity("test-secret-test-secret-test-secret-1234", "test", 60_000);
-        app = new ApplicationConfig(new Routes(emf, ts), new AccessHandler(ts)).startServer(0);
-        RestAssured.baseURI = "http://localhost";
-        RestAssured.port = app.port();
-        RestAssured.basePath = "/api/v1";
-    }
-
-    @AfterAll
-    static void stopServer() {
-        if (app != null) {
-            app.stop();
-        }
-    }
+public class AuthControllerTest extends RestTestBase {
 
     private void register(String username, String email, String password) {
         given().contentType(ContentType.JSON)
