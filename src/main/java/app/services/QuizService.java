@@ -1,6 +1,6 @@
 package app.services;
 
-import app.dao.CocktailCandidate;
+import app.dao.CocktailCandidateDAO;
 import app.dao.CocktailDAO;
 import app.dto.CocktailDTO;
 import app.dto.QuizAnswerDTO;
@@ -22,13 +22,13 @@ public class QuizService {
      * Made so that new strategies for calculation of distance can be added in the future if needed.
       */
 
-    public QuizService (ScoringStrategy scoringStrategy) {
-        this.cocktailDAO = new CocktailDAO();
+    public QuizService (CocktailDAO cocktailDAO, ScoringStrategy scoringStrategy) {
+        this.cocktailDAO = cocktailDAO;
         this.scoringStrategy = scoringStrategy;
     }
 
     public CocktailDTO findBestMatch (QuizAnswerDTO answers) {
-        List<CocktailCandidate> candidates = cocktailDAO.getCandidatesForQuiz(
+        List<CocktailCandidateDAO> candidates = cocktailDAO.getCandidatesForQuiz(
                 answers.getCocktailFamilyId(), answers.getSpiritId());
 
         if (candidates.isEmpty()) {
@@ -36,10 +36,10 @@ public class QuizService {
                     "No recipes match the chosen cocktail family/spirit type");
         }
 
-        CocktailCandidate bestMatch = null;
+        CocktailCandidateDAO bestMatch = null;
         double bestDistance = Double.MAX_VALUE;
 
-        for (CocktailCandidate candidate : candidates) {
+        for (CocktailCandidateDAO candidate : candidates) {
             double distance = scoringStrategy.calculateDistance(
                     answers.getTasteAnswers(), candidate.getFlavorProfile());
 

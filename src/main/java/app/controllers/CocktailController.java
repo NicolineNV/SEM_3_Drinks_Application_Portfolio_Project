@@ -13,8 +13,12 @@ public class CocktailController {
         this.cocktailService = new CocktailService(emf);
     }
 
-    public void getById(Context ctx){
+    public void getById(Context ctx) {
         Long id = ctx.pathParamAsClass("id", Long.class).get();
         ctx.json(cocktailService.getById(id));
+    }
+
+    public void getAll(Context ctx) {
+        ctx.json(cocktailService.getAll());
     }
 }
