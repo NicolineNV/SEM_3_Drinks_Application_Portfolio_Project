@@ -1,6 +1,6 @@
 package app.dao;
 
-import app.entities.User;
+import app.entities.user.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 

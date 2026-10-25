@@ -1,6 +1,6 @@
 package app.dao;
 
-import app.entities.Mixer;
+import app.entities.mixer.Mixer;
 import jakarta.persistence.EntityManagerFactory;
 
 public class MixerDAO extends AbstractDAO<Mixer, Long> {

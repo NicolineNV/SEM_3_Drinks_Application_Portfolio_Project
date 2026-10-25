@@ -1,7 +1,7 @@
 package app.dto;
 
-import app.entities.Role;
-import app.entities.User;
+import app.entities.user.Role;
+import app.entities.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

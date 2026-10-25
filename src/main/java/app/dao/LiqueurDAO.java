@@ -1,6 +1,6 @@
 package app.dao;
 
-import app.entities.Liqueur;
+import app.entities.liqueur.Liqueur;
 import jakarta.persistence.EntityManagerFactory;
 
 public class LiqueurDAO extends AbstractDAO<Liqueur, Long> {

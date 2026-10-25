@@ -1,4 +1,4 @@
-package app.entities;
+package app.entities.liqueur;
 
 import jakarta.persistence.Embeddable;
 import java.io.Serializable;

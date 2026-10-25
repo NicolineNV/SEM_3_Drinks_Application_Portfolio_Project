@@ -1,6 +1,10 @@
 package app.dao;
 
 import app.entities.*;
+import app.entities.cocktailmenu.CocktailMenu;
+import app.entities.cocktailmenu.CocktailMenuId;
+import app.entities.spirit.Spirit;
+import app.entities.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

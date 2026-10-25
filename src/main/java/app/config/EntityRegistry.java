@@ -1,6 +1,12 @@
 package app.config;
 
 import app.entities.*;
+import app.entities.cocktailmenu.*;
+import app.entities.liqueur.*;
+import app.entities.mixer.*;
+import app.entities.spirit.*;
+import app.entities.syrup.*;
+import app.entities.user.*;
 import org.hibernate.cfg.Configuration;
 
 final class EntityRegistry {

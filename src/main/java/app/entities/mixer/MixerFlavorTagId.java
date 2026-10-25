@@ -1,4 +1,4 @@
-package app.entities;
+package app.entities.mixer;
 
 import jakarta.persistence.Embeddable;
 import java.io.Serializable;

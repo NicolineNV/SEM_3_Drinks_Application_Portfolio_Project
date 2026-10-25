@@ -1,5 +1,6 @@
-package app.entities;
+package app.entities.liqueur;
 
+import app.entities.FlavorTag;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,16 +9,16 @@ import lombok.NoArgsConstructor;
 @Getter
 
 @Entity
-@Table(name = "syrup_flavor_tag")
-public class SyrupFlavorTag {
+@Table(name = "liqueur_flavor_tag")
+public class LiqueurFlavorTag {
 
     @EmbeddedId
-    private SyrupFlavorTagId id = new SyrupFlavorTagId();
+    private LiqueurFlavorTagId id = new LiqueurFlavorTagId();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("syrupId")
-    @JoinColumn(name = "syrup_id")
-    private Syrup syrup;
+    @MapsId("liqueurId")
+    @JoinColumn(name = "liqueur_id")
+    private Liqueur liqueur;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("flavorTagId")
@@ -27,8 +28,8 @@ public class SyrupFlavorTag {
     @Column(nullable = false)
     private Integer intensity;
 
-    public SyrupFlavorTag(Syrup syrup, FlavorTag flavorTag, Integer intensity){
-        this.syrup = syrup;
+    public LiqueurFlavorTag(Liqueur liqueur, FlavorTag flavorTag, Integer intensity){
+        this.liqueur = liqueur;
         this.flavorTag = flavorTag;
         this.intensity = intensity;
     }

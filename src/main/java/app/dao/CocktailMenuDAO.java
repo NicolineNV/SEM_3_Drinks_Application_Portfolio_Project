@@ -1,7 +1,7 @@
 package app.dao;
 
-import app.entities.CocktailMenu;
-import app.entities.CocktailMenuId;
+import app.entities.cocktailmenu.CocktailMenu;
+import app.entities.cocktailmenu.CocktailMenuId;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 

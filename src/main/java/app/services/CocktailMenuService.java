@@ -5,9 +5,9 @@ import app.dao.CocktailMenuDAO;
 import app.dao.UserDAO;
 import app.dto.CocktailDTO;
 import app.entities.Cocktail;
-import app.entities.CocktailMenu;
-import app.entities.CocktailMenuId;
-import app.entities.User;
+import app.entities.cocktailmenu.CocktailMenu;
+import app.entities.cocktailmenu.CocktailMenuId;
+import app.entities.user.User;
 import app.exceptions.ApiException;
 import io.javalin.http.HttpStatus;
 

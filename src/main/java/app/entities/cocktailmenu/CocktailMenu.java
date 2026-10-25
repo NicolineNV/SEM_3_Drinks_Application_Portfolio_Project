@@ -1,5 +1,7 @@
-package app.entities;
+package app.entities.cocktailmenu;
 
+import app.entities.Cocktail;
+import app.entities.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,5 +1,9 @@
 package app.entities;
 
+import app.entities.liqueur.Liqueur;
+import app.entities.mixer.Mixer;
+import app.entities.spirit.Spirit;
+import app.entities.syrup.Syrup;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

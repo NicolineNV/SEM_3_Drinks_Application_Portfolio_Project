@@ -1,6 +1,10 @@
 package app.seed;
 
 import app.entities.*;
+import app.entities.liqueur.Liqueur;
+import app.entities.mixer.Mixer;
+import app.entities.spirit.Spirit;
+import app.entities.syrup.Syrup;
 import app.exceptions.SeedException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

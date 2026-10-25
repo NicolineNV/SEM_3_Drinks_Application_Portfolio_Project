@@ -1,6 +1,6 @@
 package app.dao;
 
-import app.entities.Syrup;
+import app.entities.syrup.Syrup;
 import jakarta.persistence.EntityManagerFactory;
 
 public class SyrupDAO extends AbstractDAO<Syrup, Long> {

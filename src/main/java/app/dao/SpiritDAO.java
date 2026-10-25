@@ -1,6 +1,6 @@
 package app.dao;
 
-import app.entities.Spirit;
+import app.entities.spirit.Spirit;
 import jakarta.persistence.EntityManagerFactory;
 
 public class SpiritDAO extends AbstractDAO<Spirit, Long> {

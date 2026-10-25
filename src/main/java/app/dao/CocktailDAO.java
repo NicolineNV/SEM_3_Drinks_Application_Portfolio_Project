@@ -1,6 +1,10 @@
 package app.dao;
 
 import app.entities.*;
+import app.entities.liqueur.LiqueurFlavorTag;
+import app.entities.mixer.MixerFlavorTag;
+import app.entities.spirit.SpiritFlavorTag;
+import app.entities.syrup.SyrupFlavorTag;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -56,7 +60,7 @@ public class CocktailDAO extends AbstractDAO<Cocktail, Long> {
 
 
 
-    public List<CocktailCandidate> getCandidatesForQuiz(Long familyId, Long spiritId) {
+    public List<CocktailCandidateDAO> getCandidatesForQuiz(Long familyId, Long spiritId) {
         try (EntityManager em = emf.createEntityManager()) {
 
             StringBuilder jpql = new StringBuilder(COCKTAIL_WITH_RELATIONS) // StringBuilder because there is a conditional structure
@@ -75,9 +79,9 @@ public class CocktailDAO extends AbstractDAO<Cocktail, Long> {
 
             List<Cocktail> cocktails = query.getResultList();
 
-            List<CocktailCandidate> candidates = new ArrayList<>();
+            List<CocktailCandidateDAO> candidates = new ArrayList<>();
             for (Cocktail cocktail : cocktails) {
-                candidates.add(new CocktailCandidate
+                candidates.add(new CocktailCandidateDAO
                         (cocktail, buildFlavorProfile(cocktail)));
             }
 

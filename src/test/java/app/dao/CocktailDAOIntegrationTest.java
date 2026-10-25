@@ -1,6 +1,8 @@
 package app.dao;
 
 import app.entities.*;
+import app.entities.spirit.Spirit;
+import app.entities.syrup.Syrup;
 import org.hibernate.LazyInitializationException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -105,7 +107,7 @@ class CocktailDAOIntegrationTest extends IntegrationTestBase{
         createCocktail("Whiskey Sour", sours, rum);
         createCocktail("Mai Tai", tiki, rum);
 
-        List<CocktailCandidate> candidates = cocktailDAO.getCandidatesForQuiz(sours.getId(), null);
+        List<CocktailCandidateDAO> candidates = cocktailDAO.getCandidatesForQuiz(sours.getId(), null);
 
         assertEquals(1, candidates.size());
         assertEquals("Whiskey Sour", candidates.getFirst().getCocktail().getName());
@@ -119,8 +121,8 @@ class CocktailDAOIntegrationTest extends IntegrationTestBase{
         createCocktail("Old Fashioned", family, whiskey);
         createCocktail("Martini", family, gin);
 
-        List<CocktailCandidate> onlyWhiskey = cocktailDAO.getCandidatesForQuiz(family.getId(), whiskey.getId());
-        List<CocktailCandidate> anySpirit = cocktailDAO.getCandidatesForQuiz(family.getId(), null);
+        List<CocktailCandidateDAO> onlyWhiskey = cocktailDAO.getCandidatesForQuiz(family.getId(), whiskey.getId());
+        List<CocktailCandidateDAO> anySpirit = cocktailDAO.getCandidatesForQuiz(family.getId(), null);
 
         assertEquals(1, onlyWhiskey.size());
         assertEquals("Old Fashioned", onlyWhiskey.getFirst().getCocktail().getName());
@@ -161,7 +163,7 @@ class CocktailDAOIntegrationTest extends IntegrationTestBase{
         cocktail.setSyrup(syrup);
         cocktailDAO.create(cocktail);
 
-        List<CocktailCandidate> candidates = cocktailDAO.getCandidatesForQuiz(family.getId(), null);
+        List<CocktailCandidateDAO> candidates = cocktailDAO.getCandidatesForQuiz(family.getId(), null);
 
         assertEquals(1, candidates.size());
         Map<Long, Integer> profile = candidates.getFirst().getFlavorProfile();

@@ -1,5 +1,6 @@
-package app.entities;
+package app.entities.syrup;
 
+import app.entities.FlavorTag;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +12,8 @@ import java.util.List;
 @Getter
 
 @Entity
-@Table(name ="spirit")
-public class Spirit {
+@Table(name ="syrup")
+public class Syrup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +25,10 @@ public class Spirit {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @OneToMany(mappedBy = "spirit", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SpiritFlavorTag> flavorTags = new ArrayList<>();
+    @OneToMany(mappedBy = "syrup", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SyrupFlavorTag> flavorTags = new ArrayList<>();
 
-    public Spirit(String name, String description){
+    public Syrup(String name, String description){
         this.name = name;
         this.description = description;
     }
@@ -41,13 +42,13 @@ public class Spirit {
     }
 
     public void addFlavorTag (FlavorTag tag, int intensity){
-        flavorTags.add(new SpiritFlavorTag(this, tag, intensity));
+        flavorTags.add(new SyrupFlavorTag(this, tag, intensity));
     }
 
     @Override
     public boolean equals(Object o){
         if (this == o) return true;
-        if (!(o instanceof Spirit that)) return false;
+        if (!(o instanceof Syrup that)) return false;
         return name != null && name.equals(that.name);
     }
 

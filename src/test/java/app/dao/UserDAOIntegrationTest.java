@@ -1,6 +1,6 @@
 package app.dao;
 
-import app.entities.User;
+import app.entities.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,8 +1,8 @@
 package app.controllers;
 
-import app.dto.AuthResponseDTO;
-import app.dto.LoginRequestDTO;
-import app.dto.RegisterRequestDTO;
+import app.dto.response.AuthResponseDTO;
+import app.dto.request.LoginRequestDTO;
+import app.dto.request.RegisterRequestDTO;
 import app.dto.UserDTO;
 import app.security.TokenSecurity;
 import app.services.UserService;

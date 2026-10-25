@@ -7,7 +7,7 @@ import app.dao.IntegrationTestBase;
 import app.dao.SpiritDAO;
 import app.entities.Cocktail;
 import app.entities.CocktailFamily;
-import app.entities.Spirit;
+import app.entities.spirit.Spirit;
 import app.routes.Routes;
 import app.security.AccessHandler;
 import app.security.TokenSecurity;

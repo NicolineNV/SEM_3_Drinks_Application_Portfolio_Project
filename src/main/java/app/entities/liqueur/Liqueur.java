@@ -1,5 +1,6 @@
-package app.entities;
+package app.entities.liqueur;
 
+import app.entities.FlavorTag;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -9,7 +9,7 @@ import java.util.Map;
 
 @AllArgsConstructor
 @Getter
-public class CocktailCandidate {
+public class CocktailCandidateDAO {
 
     private final Cocktail cocktail;
     private final Map<Long, Integer> flavorProfile;
