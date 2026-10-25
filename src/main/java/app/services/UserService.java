@@ -25,6 +25,12 @@ public class UserService {
         this.userDAO = new UserDAO(emf);
     }
 
+    public UserDTO getByUsername(String username) {
+        return userDAO.findByUsername(username)
+                .map(UserDTO::fromEntity)
+                .orElseThrow(() -> new ApiException(HttpStatus.UNAUTHORIZED, "User no longer exists"));
+    }
+
     public UserDTO register(String username, String email, String rawPassword) {
         if (userDAO.findByUsername(username).isPresent()) {
             throw new ApiException(HttpStatus.CONFLICT, "Username already in use: " + username);
