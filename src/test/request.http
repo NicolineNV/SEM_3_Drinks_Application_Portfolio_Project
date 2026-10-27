@@ -1,21 +1,212 @@
-### Register
-POST http://localhost:7070/api/v1/auth/register
+### // -------------------- AUTH --------------------
+
+### Login as admin (saves adminToken)
+POST {{host}}/auth/login
 Content-Type: application/json
 
-{ "username": "{{username}}", "email": "nicoline@example.com", "password": "{{password}}" }
+{ "username": "{{adminUsername}}", "password": "{{adminPassword}}" }
 
-### Login (saves the token in a variable)
+> {%
+    client.test("200 OK", () => client.assert(response.status === 200));
+    client.global.set("adminToken", response.body.token);
+%}
+
+
+### Register user (201 first time, 409 if already exist)
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{ "username": "{{username}}", "email": "{{username}}@example.com", "password": "{{password}}" }
+
+> {%
+ client.test("201 or 409", () =>
+     client.assert(response.status === 201 || response.status === 409));
+ %}
+
+
+### Login ordinary user (saves userToken)
 POST {{host}}/auth/login
 Content-Type: application/json
 
 { "username": "{{username}}", "password": "{{password}}" }
 
-> {% client.global.set("token", response.body.token); %}
+> {%
+client.test("200 OK", () => client.assert(response.status === 200));
+client.global.set("userToken", response.body.token);
+%}
 
-### Route overview (admin only)
-GET {{host}}/routes
-Accept: application/json
-Authorization: Bearer {{token}}
 
-### Public endpoint, no token needed
+### Wrong password gives 401
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{ "username": "{{username}}", "password": "this-is-wrong" }
+
+> {%
+ client.test("401", () => client.assert(response.status === 401));
+ %}
+
+
+
+### // -------------------- PUBLIC ENDPOINTS --------------------
+
+### Families (saves id of the family)
+GET {{host}}/families
+
+> {%
+ client.test("200 OK", () => client.assert(response.status === 200));
+ const family = response.body.find(f => f.name === "Cocktail") || response.body[0];
+ client.global.set("familyId", family.id);
+ %}
+
+### Spirits (saves first spirit id)
+GET {{host}}/spirits
+
+> {%
+ client.test("200 OK", () => client.assert(response.status === 200));
+ client.global.set("spiritId", response.body[0].id);
+ %}
+
+### Flavor-tags (saves ids as tag1, tag2, ...)
+GET {{host}}/flavor-tags
+
+> {%
+ client.test("200 OK", () => client.assert(response.status === 200));
+ response.body.forEach((t, i) => client.global.set("tag" + (i + 1), t.id));
+ %}
+
+### All cocktails
+GET {{host}}/cocktails
+
+> {%
+ client.test("200 OK", () => client.assert(response.status === 200));
+ client.test("has cocktails", () => client.assert(response.body.length > 0));
+ %}
+
+### Cocktail by id
 GET {{host}}/cocktails/1
+
+> {%
+ client.test("200 OK", () => client.assert(response.status === 200));
+ %}
+
+### Unknown cocktail gives 404
+GET {{host}}/cocktails/999999
+
+> {%
+client.test("404", () => client.assert(response.status === 404));
+ %}
+
+### Cocktail quiz
+POST {{host}}/quiz
+Content-Type: application/json
+
+{
+  "cocktailFamilyId": {{familyId}},
+  "spiritId": null,
+  "tasteAnswers": { "{{tag1}}": 5, "{{tag2}}": 2, "{{tag3}}": 1, "{{tag4}}": 1, "{{tag5}}": 3 }
+}
+
+> {%
+ client.test("200 OK", () => client.assert(response.status === 200));
+ client.test("returns a cocktail", () => client.assert(response.body.name !== undefined));
+ %}
+
+### Quiz with answer outside 1-5 gives 400
+POST {{host}}/quiz
+Content-Type: application/json
+
+{ "cocktailFamilyId": {{familyId}}, "tasteAnswers": { "{{tag1}}": 6} }
+
+> {%
+ client.test("400", () => client.assert(response.status === 400));
+ %}
+
+
+
+### // -------------------- USER FAVORITES (logged in) --------------------
+
+### Save favorite cocktail (201 first time, 409 if already saved)
+POST {{host}}/favorites/1
+Authorization: Bearer {{userToken}}
+
+> {%
+ client.test("201 or 409", () => client.assert(response.status === 201 || response.status === 409));
+ %}
+
+### User favorite cocktails saved list
+GET {{host}}/favorites
+Authorization: Bearer {{userToken}}
+
+> {%
+ client.test("200 OK", () => client.assert(response.status === 200));
+ client.test("cocktail 1 is in the list", () => client.assert(response.body.some(c => c.id === 1)));
+ %}
+
+### Remove saved favorite cocktail from list
+DELETE {{host}}/favorites/1
+Authorization: Bearer {{userToken}}
+
+> {%
+ client.test("204", () => client.assert(response.status === 204));
+ %}
+
+
+
+### // -------------------- ADMIN ENDPOINTS --------------------
+
+### Admin routes - all endpoints
+GET {{host}}/routes
+Authorization: Bearer {{adminToken}}
+
+### All liqueurs - admin list, forbidden for ordinary user (403)
+GET {{host}}/liqueurs
+Authorization: Bearer {{userToken}}
+
+> {%
+ client.test("403", () => client.assert(response.status === 403));
+ %}
+
+### All liqueurs - works for admin
+GET {{host}}/liqueurs
+Authorization: Bearer {{adminToken}}
+
+> {%
+    client.test("200 OK", () => client.assert(response.status === 200));
+%}
+
+### Create cocktail (admin only) - forbidden for ordinary user 403
+POST {{host}}/cocktails
+Authorization: Bearer {{userToken}}
+Content-Type: application/json
+
+{ "name": "Smoke test cocktail", "description": "d", "instructions": "i",
+  "cocktailFamilyId": {{familyId}}, "spiritId": {{spiritId}} }
+
+> {%
+ client.test("403", () => client.assert(response.status === 403));
+ %}
+
+### Create cocktail as admin
+POST {{host}}/cocktails
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{ "name": "Smoke test cocktail", "description": "d", "instructions": "i",
+  "cocktailFamilyId": {{familyId}}, "spiritId": {{spiritId}} }
+
+> {%
+    client.test("201", () => client.assert(response.status === 201));
+%}
+
+### All mixers (admin only)
+GET {{host}}/mixers
+Authorization: Bearer {{adminToken}}
+
+### All syrups (admin only
+GET {{host}}/syrups
+Authorization: Bearer {{adminToken}}
+
+### All garnishes (admin only)
+GET {{host}}/garnishes
+Authorization: Bearer {{adminToken}}
