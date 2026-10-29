@@ -84,7 +84,7 @@ GET {{host}}/cocktails
  %}
 
 ### Cocktail by id
-GET {{host}}/cocktails/1
+GET {{host}}/cocktails/700
 
 > {%
  client.test("200 OK", () => client.assert(response.status === 200));
@@ -127,7 +127,7 @@ Content-Type: application/json
 ### // -------------------- USER FAVORITES (logged in) --------------------
 
 ### Save favorite cocktail (201 first time, 409 if already saved)
-POST {{host}}/favorites/1
+POST {{host}}/favorites/7
 Authorization: Bearer {{userToken}}
 
 > {%
@@ -144,7 +144,7 @@ Authorization: Bearer {{userToken}}
  %}
 
 ### Remove saved favorite cocktail from list
-DELETE {{host}}/favorites/1
+DELETE {{host}}/favorites/6
 Authorization: Bearer {{userToken}}
 
 > {%
@@ -192,7 +192,7 @@ POST {{host}}/cocktails
 Authorization: Bearer {{adminToken}}
 Content-Type: application/json
 
-{ "name": "Smoke test cocktail", "description": "d", "instructions": "i",
+{ "name": "Cocktail tester 2", "description": "d", "instructions": "i",
   "cocktailFamilyId": {{familyId}}, "spiritId": {{spiritId}} }
 
 > {%

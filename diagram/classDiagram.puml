@@ -1,0 +1,701 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package app {
+
+    class Main {
+        + main()
+    }
+
+    class RunServer {
+        + void runServer()
+    }
+
+    package config {
+        class ApplicationConfig {
+            - Routes routes
+            - AccessHandler accessHandler
+            - Logger logger
+            + Javalin startServer()
+            + void stopServer()
+            - void apiExceptionHandler()
+            - void validationExceptionHandler()
+            - void generalExceptionHandler()
+            - Map<String, Object> errorBody()
+        }
+        class EntityRegistry {
+            void registerEntities()
+        }
+        class HibernateBaseProperties {
+             Properties createBase()
+        }
+        class HibernateConfig {
+            - EntityManagerFactory emf
+            + EntityManagerFactory getEntityManagerFactory()
+            - Properties buildProps()
+            - void setDeployedProperties()
+            - void setDevProperties()
+        }
+        class HibernateEmfBuilder {
+             - Logger logger
+             EntityManagerFactory build()
+        }
+    }
+
+    package controllers {
+        class AuthController {
+            - UserService userService
+            - TokenSecurity tokenSecurity
+            + void register()
+            + void login()
+        }
+        class CocktailController {
+            - CocktailService cocktailService
+            - UserService userService
+            + void getById()
+            + void getAll()
+            + void create()
+        }
+        class FavoriteController {
+            - CocktailMenuService service
+            + void getAll()
+            + void save()
+            + void remove()
+            - String currentUsername()
+        }
+        class LookupController {
+            - LookupService lookupService
+            + void getFamilies()
+            + void getSpirits()
+            + void getLiqueurs()
+            + void getMixers()
+            + void getSyrups()
+            + void getGarnishes()
+            + void getFlavorTags()
+        }
+        class QuizController {
+            - QuizService quizService
+            + void findMatch()
+        }
+    }
+
+    package dao {
+        abstract class AbstractDAO {
+            - Logger logger
+            # EntityManagerFactory emf
+            - Class<T> entityClass
+            + T create()
+            + Optional<T> getById()
+            + List<T> getAll()
+            + T update()
+            + void delete()
+            # T executeInTransaction()
+        }
+        class CocktailCandidateDAO {
+            - Cocktail cocktail
+            - Map<Long, Integer> flavorProfile
+        }
+        class CocktailDAO {
+            - String COCKTAIL_WITH_RELATIONS
+            + Optional<Cocktail> getByIdWithDetails()
+            + List<Cocktail> getAllWithDetails()
+            + List<CocktailCandidateDAO> getCandidatesForQuiz()
+            - Map<Long, Integer> buildFlavorProfile()
+            - Map<Long, Integer> rankFlavorProfile()
+        }
+        class CocktailFamilyDAO {
+        }
+        class CocktailMenuDAO {
+            + List<CocktailMenu> getFavoritesByUser()
+        }
+        class FlavorTagDAO {
+        }
+        class GarnishDAO {
+        }
+        interface IDAO {
+            T create()
+            Optional<T> getById()
+            List<T> getAll()
+            T update()
+            void delete()
+        }
+        class LiqueurDAO {
+        }
+        class MixerDAO {
+        }
+        class SpiritDAO {
+        }
+        class SyrupDAO {
+        }
+        class UserDAO {
+            + Optional<User> findByUsername()
+            + Optional<User> findByEmail()
+        }
+    }
+
+    package dto {
+        package request {
+            record LoginRequestDTO {
+                String username
+                String password
+                + String toString()
+            }
+            record RegisterRequestDTO {
+                String username
+                String email
+                String password
+                + String toString()
+            }
+        }
+        package response {
+            record AuthResponseDTO {
+                String token
+                UserDTO user
+            }
+        }
+        class CocktailDTO {
+            - Long id
+            - String name
+            - String description
+            - String instructions
+            - String cocktailFamily
+            - String spirit
+            - String liqueur
+            - String mixer
+            - String syrup
+            - String garnish
+            + CocktailDTO fromEntity()
+        }
+        class CreateCocktailDTO {
+            - String name
+            - String description
+            - String instructions
+            - Long cocktailFamilyId
+            - Long spiritId
+            - Long liqueurId
+            - Long mixerId
+            - Long syrupId
+            - Long garnishId
+        }
+        record OptionDTO {
+            Long id
+            String name
+            String description
+        }
+        class QuizAnswerDTO {
+            - Long cocktailFamilyId
+            - Long spiritId
+            - Map<Long, Integer> tasteAnswers
+        }
+        class UserDTO {
+            - Long id
+            - String username
+            - String email
+            - Role role
+        }
+    }
+
+    package entities {
+        package cocktailmenu {
+            class CocktailMenu {
+                - CocktailMenuId id
+                - User user
+                - Cocktail cocktail
+                - LocalDateTime savedAt
+                # void onCreate()
+            }
+            class CocktailMenuId {
+                - Long userId
+                - Long cocktailId
+                + boolean equals()
+                + int hashCode()
+            }
+        }
+        package liqueur {
+            class Liqueur {
+                - Long id
+                - String name
+                - String description
+                - List<LiqueurFlavorTag> flavorTags
+                + void setName()
+                + void setDescription()
+                + void addFlavorTag()
+                + boolean equals()
+                + int hashCode()
+            }
+            class LiqueurFlavorTag {
+                - LiqueurFlavorTagId id
+                - Liqueur liqueur
+                - FlavorTag flavorTag
+                - Integer intensity
+                + void setIntensity()
+            }
+            class LiqueurFlavorTagId {
+                - Long liqueurId
+                - Long flavorTagId
+                + boolean equals()
+                + int hashCode()
+            }
+        }
+        package mixer {
+            class Mixer {
+                - Long id
+                - String name
+                - String description
+                - List<MixerFlavorTag> flavorTags
+                + void setName()
+                + void setDescription()
+                + void addFlavorTag()
+                + boolean equals()
+                + int hashCode()
+            }
+            class MixerFlavorTag {
+                - MixerFlavorTagId id
+                - Mixer mixer
+                - FlavorTag flavorTag
+                - Integer intensity
+                + void setIntensity()
+            }
+            class MixerFlavorTagId {
+                - Long mixerId
+                - Long flavorTagId
+                + boolean equals()
+                + int hashCode()
+            }
+        }
+        package spirit {
+            class Spirit {
+                - Long id
+                - String name
+                - String description
+                - List<SpiritFlavorTag> flavorTags
+                + void setName()
+                + void setDescription()
+                + void addFlavorTag()
+                + boolean equals()
+                + int hashCode()
+            }
+            class SpiritFlavorTag {
+                - SpiritFlavorTagId id
+                - Spirit spirit
+                - FlavorTag flavorTag
+                - Integer intensity
+                + void setIntensity()
+            }
+            class SpiritFlavorTagId {
+                - Long spiritId
+                - Long flavorTagId
+                + boolean equals()
+                + int hashCode()
+            }
+        }
+        package syrup {
+            class Syrup {
+                - Long id
+                - String name
+                - String description
+                - List<SyrupFlavorTag> flavorTags
+                + void setName()
+                + void setDescription()
+                + void addFlavorTag()
+                + boolean equals()
+                + int hashCode()
+            }
+            class SyrupFlavorTag {
+                - SyrupFlavorTagId id
+                - Syrup syrup
+                - FlavorTag flavorTag
+                - Integer intensity
+                + void setIntensity()
+            }
+            class SyrupFlavorTagId {
+                - Long syrupId
+                - Long flavorTagId
+                + boolean equals()
+                + int hashCode()
+            }
+        }
+        package user {
+            enum Role {
+                USER
+                ADMIN
+            }
+            class User {
+                - Long id
+                - String username
+                - String email
+                - String passwordHash
+                - Role role
+                - LocalDateTime createdAt
+                # void onCreate()
+                + void setUsername()
+                + void setEmail()
+                + void setRole()
+                + boolean equals()
+                + int hashCode()
+            }
+        }
+        class Cocktail {
+            - Long id
+            - String name
+            - String description
+            - String instructions
+            - CocktailFamily cocktailFamily
+            - Spirit spirit
+            - Liqueur liqueur
+            - Mixer mixer
+            - Syrup syrup
+            - Garnish garnish
+            - LocalDateTime createdAt
+            # void onCreate()
+            + setters()
+            + boolean equals()
+            + int hashCode()
+        }
+        class CocktailFamily {
+            - Long id
+            - String name
+            - String description
+            + void setName()
+            + void setDescription()
+            + boolean equals()
+            + int hashCode()
+        }
+        class FlavorTag {
+            - Long id
+            - String name
+            + void setName()
+            + boolean equals()
+            + int hashCode()
+        }
+        class Garnish {
+            - Long id
+            - String name
+            - String description
+            + void setName()
+            + void setDescription()
+            + boolean equals()
+            + int hashCode()
+        }
+    }
+
+    package exceptions {
+        exception ApiException {
+            - int code
+            - Logger logger
+            + ApiException(int code, String msg)
+            + ApiException(HttpStatus status, String msg)
+            + int getCode()
+        }
+        exception SeedException {
+            + SeedException(String msg)
+            + SeedException(String msg, Throwable cause)
+        }
+    }
+
+    package routes {
+        class Routes {
+            - CocktailController cocktailController
+            - AuthController authController
+            - LookupController lookupController
+            - QuizController quizController
+            - FavoriteController favoriteController
+            + EndpointGroup getRoutes()
+        }
+    }
+
+    package security {
+        class AccessHandler {
+            + String USERNAME_ATTR
+            + String ROLE_ATTR
+            - TokenSecurity tokenSecurity
+            + void handle()
+        }
+        enum AccessRole {
+            ANYONE
+            USER
+            ADMIN
+        }
+        class TokenSecurity {
+            + record TokenData(String username, String role)
+            - Algorithm algorithm
+            - JWTVerifier verifier
+            - String issuer
+            - Long expireMillis
+            + String createToken()
+            + TokenData verify()
+        }
+    }
+
+    package seed {
+        class CocktailDBFetcher {
+            - Logger logger
+            - String BASE_URL
+            - Path RAW_DIR
+            - int THREAD_COUNT
+            - HttpClient httpClient
+            - ObjectMapper objectMapper
+            + void fetchAll()
+            - String fetchLetter()
+        }
+        class CocktailImporter {
+            - Logger logger
+            - Path SEED_DIR
+            - Path RAW_DIR
+            - String[] TAGS
+            - record Canonical(String name, String type, int[] intensities)
+            - record Skipped(String name, String reason, String detail)
+            - EntityManagerFactory emf
+            - ObjectMapper mapper
+            - Map<String, String> aliases
+            - Map<String, Canonical> canonicals
+            - List<Skipped> skipped
+            + void run()
+            - Optional<String> classifyAndSave()
+            - Optional<String> skip()
+            - String instructions()
+            - CocktailFamily family()
+            - <T> T findOrCreate()
+            - <T> T withTags()
+            - void loadClassification()
+            - List<Path> rawFiles()
+            - JsonNode readJson()
+            - void writeSkipped()
+            - String normalize()
+        }
+        class FetchRawCocktails {
+            + main(String[] args)
+        }
+        class IngredientAnalyser {
+            - Logger logger
+            - Path RAW_DIR
+            - Path OUTPUT
+            - ObjectMapper objectMapper
+            + void analyze()
+            - void writeCsv()
+            - String normalize()
+            + main(String[] args)
+        }
+        class RunImport {
+            + main(String[] args)
+        }
+    }
+
+    package services {
+        class CocktailMenuService {
+            - UserDAO userDAO
+            - CocktailDAO cocktailDAO
+            - CocktailMenuDAO cocktailMenuDAO
+            + CocktailDTO saveFavorite()
+            + List<CocktailDTO> getFavorites()
+            + void removeFavorite()
+            - Long userIdOf()
+            + CocktailDTO saveFavorite()
+            + List<CocktailDTO> getFavorites()
+            + void removeFavorite()
+        }
+        class CocktailService {
+            - CocktailDAO cocktailDAO
+            - CocktailFamilyDAO cocktailFamilyDAO
+            - SpiritDAO spiritDAO
+            - LiqueurDAO liqueurDAO
+            - MixerDAO mixerDAO
+            - SyrupDAO syrupDAO
+            - GarnishDAO garnishDAO
+            - UserService userService
+            + CocktailDTO getById()
+            + List<CocktailDTO> getAll()
+        }
+        class LookupService {
+            - Comparator<OptionDTO> BY_NAME
+            - CocktailFamilyDAO cocktailFamilyDAO
+            - SpiritDAO spiritDAO
+            - LiqueurDAO liqueurDAO
+            - MixerDAO mixerDAO
+            - SyrupDAO syrupDAO
+            - GarnishDAO garnishDAO
+            - FlavorTagDAO flavorTagDAO
+            + List<OptionDTO> getFamilies()
+            + List<OptionDTO> getSpirits()
+            + List<OptionDTO> getLiqueurs()
+            + List<OptionDTO> getMixers()
+            + List<OptionDTO> getSyrups()
+            + List<OptionDTO> getGarnishes()
+            + List<OptionDTO> getFlavorTags()
+        }
+        class QuizService {
+            - CocktailDAO cocktailDAO
+            - ScoringStrategy scoringStrategy
+            + CocktailDTO findBestMatch()
+        }
+        class UserService {
+            - Logger logger
+            - UserDAO userDAO
+            + UserDTO getByUsername()
+            + UserDTO register()
+            + UserDTO login()
+        }
+    }
+
+    package strategies {
+        class EuclideanDistanceStrategy {
+            + double calculateDistance()
+        }
+        interface ScoringStrategy {
+            double calculateDistance(Map<Long, Integer> userAnswers, Map<Long, Integer> cocktailProfile)
+        }
+    }
+
+    package utils {
+        class Utils {
+            + String getPropertyValue()
+            + String setting()
+        }
+    }
+
+}
+
+
+' ---------- Startup ----------
+app.Main ..> app.RunServer
+app.RunServer ..> app.config.ApplicationConfig
+app.RunServer ..> app.routes.Routes
+app.RunServer ..> app.config.HibernateConfig
+app.config.ApplicationConfig --> app.routes.Routes
+app.config.ApplicationConfig --> app.security.AccessHandler
+app.config.ApplicationConfig ..> app.exceptions.ApiException : handles
+app.routes.Routes --> app.controllers.AuthController
+app.routes.Routes --> app.controllers.CocktailController
+app.routes.Routes --> app.controllers.LookupController
+app.routes.Routes --> app.controllers.QuizController
+app.routes.Routes --> app.controllers.FavoriteController
+app.routes.Routes ..> app.security.AccessRole : assigns roles
+app.security.AccessHandler --> app.security.TokenSecurity
+app.security.AccessHandler ..> app.security.AccessRole : checks
+app.config.HibernateConfig ..> app.config.HibernateBaseProperties
+app.config.HibernateConfig ..> app.config.HibernateEmfBuilder
+app.config.HibernateEmfBuilder ..> app.config.EntityRegistry
+app.config.HibernateConfig ..> app.utils.Utils
+
+' ---------- Controllers -> services ----------
+app.controllers.AuthController --> app.services.UserService
+app.controllers.AuthController --> app.security.TokenSecurity
+app.controllers.CocktailController --> app.services.CocktailService
+app.controllers.CocktailController --> app.services.UserService
+app.controllers.FavoriteController --> app.services.CocktailMenuService
+app.controllers.LookupController --> app.services.LookupService
+app.controllers.QuizController --> app.services.QuizService
+
+' ---------- Controllers -> DTOs ----------
+app.controllers.AuthController ..> app.dto.request.RegisterRequestDTO
+app.controllers.AuthController ..> app.dto.request.LoginRequestDTO
+app.controllers.AuthController ..> app.dto.response.AuthResponseDTO
+app.controllers.CocktailController ..> app.dto.CreateCocktailDTO
+app.controllers.QuizController ..> app.dto.QuizAnswerDTO
+app.dto.response.AuthResponseDTO --> app.dto.UserDTO
+
+' ---------- Services -> DAOs ----------
+app.services.CocktailMenuService --> app.dao.UserDAO
+app.services.CocktailMenuService --> app.dao.CocktailDAO
+app.services.CocktailMenuService --> app.dao.CocktailMenuDAO
+app.services.CocktailService --> app.dao.CocktailDAO
+app.services.CocktailService --> app.dao.CocktailFamilyDAO
+app.services.CocktailService --> app.dao.SpiritDAO
+app.services.CocktailService --> app.dao.LiqueurDAO
+app.services.CocktailService --> app.dao.MixerDAO
+app.services.CocktailService --> app.dao.SyrupDAO
+app.services.CocktailService --> app.dao.GarnishDAO
+app.services.CocktailService --> app.services.UserService
+app.services.LookupService --> app.dao.CocktailFamilyDAO
+app.services.LookupService --> app.dao.SpiritDAO
+app.services.LookupService --> app.dao.LiqueurDAO
+app.services.LookupService --> app.dao.MixerDAO
+app.services.LookupService --> app.dao.SyrupDAO
+app.services.LookupService --> app.dao.GarnishDAO
+app.services.LookupService --> app.dao.FlavorTagDAO
+app.services.QuizService --> app.dao.CocktailDAO
+app.services.QuizService --> app.strategies.ScoringStrategy
+app.services.UserService --> app.dao.UserDAO
+
+' ---------- Services -> DTOs ----------
+app.services.CocktailService ..> app.dto.CocktailDTO
+app.services.CocktailService ..> app.dto.CreateCocktailDTO
+app.services.CocktailMenuService ..> app.dto.CocktailDTO
+app.services.QuizService ..> app.dto.CocktailDTO
+app.services.QuizService ..> app.dto.QuizAnswerDTO
+app.services.LookupService ..> app.dto.OptionDTO
+app.services.UserService ..> app.dto.UserDTO
+app.services.UserService ..> app.dto.request.RegisterRequestDTO
+app.services.UserService ..> app.dto.request.LoginRequestDTO
+app.dto.CocktailDTO ..> app.entities.Cocktail : fromEntity
+app.dto.UserDTO --> app.entities.user.Role
+
+' ---------- Strategy pattern ----------
+app.strategies.ScoringStrategy <|.. app.strategies.EuclideanDistanceStrategy
+
+' ---------- DAO inheritance ----------
+app.dao.IDAO <|.. app.dao.AbstractDAO
+app.dao.AbstractDAO <|-- app.dao.CocktailDAO
+app.dao.AbstractDAO <|-- app.dao.CocktailFamilyDAO
+app.dao.AbstractDAO <|-- app.dao.CocktailMenuDAO
+app.dao.AbstractDAO <|-- app.dao.FlavorTagDAO
+app.dao.AbstractDAO <|-- app.dao.GarnishDAO
+app.dao.AbstractDAO <|-- app.dao.LiqueurDAO
+app.dao.AbstractDAO <|-- app.dao.MixerDAO
+app.dao.AbstractDAO <|-- app.dao.SpiritDAO
+app.dao.AbstractDAO <|-- app.dao.SyrupDAO
+app.dao.AbstractDAO <|-- app.dao.UserDAO
+app.dao.CocktailDAO ..> app.dao.CocktailCandidateDAO : creates
+app.dao.CocktailCandidateDAO --> app.entities.Cocktail
+
+' ---------- DAO -> entity ----------
+app.dao.CocktailDAO ..> app.entities.Cocktail : manages
+app.dao.CocktailFamilyDAO ..> app.entities.CocktailFamily : manages
+app.dao.CocktailMenuDAO ..> app.entities.cocktailmenu.CocktailMenu : manages
+app.dao.FlavorTagDAO ..> app.entities.FlavorTag : manages
+app.dao.GarnishDAO ..> app.entities.Garnish : manages
+app.dao.LiqueurDAO ..> app.entities.liqueur.Liqueur : manages
+app.dao.MixerDAO ..> app.entities.mixer.Mixer : manages
+app.dao.SpiritDAO ..> app.entities.spirit.Spirit : manages
+app.dao.SyrupDAO ..> app.entities.syrup.Syrup : manages
+app.dao.UserDAO ..> app.entities.user.User : manages
+
+' ---------- Entities: Cocktail and its ingredients ----------
+app.entities.Cocktail "*" --> "1" app.entities.CocktailFamily
+app.entities.Cocktail "*" --> "0..1" app.entities.spirit.Spirit
+app.entities.Cocktail "*" --> "0..1" app.entities.liqueur.Liqueur
+app.entities.Cocktail "*" --> "0..1" app.entities.mixer.Mixer
+app.entities.Cocktail "*" --> "0..1" app.entities.syrup.Syrup
+app.entities.Cocktail "*" --> "0..1" app.entities.Garnish
+
+' ---------- Entities: ingredient <-> flavour tag (with intensity) ----------
+app.entities.spirit.Spirit "1" *-- "*" app.entities.spirit.SpiritFlavorTag
+app.entities.spirit.SpiritFlavorTag "*" --> "1" app.entities.FlavorTag
+app.entities.spirit.SpiritFlavorTag --> app.entities.spirit.SpiritFlavorTagId : id
+app.entities.liqueur.Liqueur "1" *-- "*" app.entities.liqueur.LiqueurFlavorTag
+app.entities.liqueur.LiqueurFlavorTag "*" --> "1" app.entities.FlavorTag
+app.entities.liqueur.LiqueurFlavorTag --> app.entities.liqueur.LiqueurFlavorTagId : id
+app.entities.mixer.Mixer "1" *-- "*" app.entities.mixer.MixerFlavorTag
+app.entities.mixer.MixerFlavorTag "*" --> "1" app.entities.FlavorTag
+app.entities.mixer.MixerFlavorTag --> app.entities.mixer.MixerFlavorTagId : id
+app.entities.syrup.Syrup "1" *-- "*" app.entities.syrup.SyrupFlavorTag
+app.entities.syrup.SyrupFlavorTag "*" --> "1" app.entities.FlavorTag
+app.entities.syrup.SyrupFlavorTag --> app.entities.syrup.SyrupFlavorTagId : id
+
+' ---------- Entities: favourites and users ----------
+app.entities.cocktailmenu.CocktailMenu "*" --> "1" app.entities.user.User
+app.entities.cocktailmenu.CocktailMenu "*" --> "1" app.entities.Cocktail
+app.entities.cocktailmenu.CocktailMenu --> app.entities.cocktailmenu.CocktailMenuId : id
+app.entities.user.User --> app.entities.user.Role
+
+' ---------- Seeding ----------
+app.seed.RunImport ..> app.seed.CocktailImporter
+app.seed.FetchRawCocktails ..> app.seed.CocktailDBFetcher
+app.seed.CocktailImporter ..> app.exceptions.SeedException
+app.seed.CocktailImporter ..> app.entities.Cocktail
+app.seed.CocktailImporter ..> app.entities.CocktailFamily
+app.seed.CocktailImporter ..> app.config.HibernateConfig
+
+
+@enduml
+
