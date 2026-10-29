@@ -82,7 +82,7 @@ git push (main) → GitHub Actions (build + tests) → Docker Hub → Watchtower
 ## Key Design Decisions
 
 **Schema first.**
-The database is defined in `database/schema.sql`, and the entities mirror the tables. In production Hibernate runs with `hbm2ddl=validate`, so the application fails on startup if entities and schema do not match, instead of silently changing the database. This way I can have full control over my data in my database, without having to worry that something changes overtime.
+The database is defined in `database/schema.sql`, and the entities mirror the tables. In production Hibernate runs with `hbm2ddl=validate`, so the application fails on startup if entities and schema do not match, instead of silently changing the database. This way I can have full control over my data in my database, without having to worry that something changes overtime. 
 
 **Entities never leave the service layer.**
 Controllers only see request and response DTOs. This keeps `passwordHash` and lazy relations out of the JSON responses.
@@ -421,8 +421,3 @@ There were also other user stories, that unfortunately had to be cut because of 
 Tests run in GitHub Actions on every push to `main`. The Docker image is only pushed if the tests pass.
 
 ---
-
-# Development Notes
-
-Challenges and how they were solved (details are in the process documentation on the portfolio site):
-
