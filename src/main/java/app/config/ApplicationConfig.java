@@ -30,6 +30,11 @@ public class ApplicationConfig {
             config.router.apiBuilder(routes.getRoutes());
             config.router.contextPath = "/api/v1";
             config.bundledPlugins.enableRouteOverview("/routes", AccessRole.ADMIN);
+            config.bundledPlugins.enableCors(cors -> {
+                cors.addRule(it -> {
+                    it.allowHost("http://localhost:5173", "https://drinks.nvisby.com");
+                });
+            });
         })
                 .beforeMatched(accessHandler::handle)
                 .exception(ApiException.class, ApplicationConfig::apiExceptionHandler)
