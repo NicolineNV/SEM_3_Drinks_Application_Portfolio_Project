@@ -21,7 +21,7 @@ public class AuthController {
         this.tokenSecurity = tokenSecurity;
     }
 
-    public  void register(Context ctx) {
+    public void register(Context ctx) {
         RegisterRequestDTO requestDTO = ctx.bodyValidator(RegisterRequestDTO.class)
                 .check(r -> r.username() != null && r.username().length() >= 3 &&
                         r.username().length() <= 25, "username must be 3-25 characters")

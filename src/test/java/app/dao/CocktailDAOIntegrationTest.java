@@ -107,7 +107,7 @@ class CocktailDAOIntegrationTest extends IntegrationTestBase{
         createCocktail("Whiskey Sour", sours, rum);
         createCocktail("Mai Tai", tiki, rum);
 
-        List<CocktailCandidateDAO> candidates = cocktailDAO.getCandidatesForQuiz(sours.getId(), null);
+        List<CocktailCandidate> candidates = cocktailDAO.getCandidatesForQuiz(sours.getId(), null);
 
         assertEquals(1, candidates.size());
         assertEquals("Whiskey Sour", candidates.getFirst().getCocktail().getName());
@@ -121,8 +121,8 @@ class CocktailDAOIntegrationTest extends IntegrationTestBase{
         createCocktail("Old Fashioned", family, whiskey);
         createCocktail("Martini", family, gin);
 
-        List<CocktailCandidateDAO> onlyWhiskey = cocktailDAO.getCandidatesForQuiz(family.getId(), whiskey.getId());
-        List<CocktailCandidateDAO> anySpirit = cocktailDAO.getCandidatesForQuiz(family.getId(), null);
+        List<CocktailCandidate> onlyWhiskey = cocktailDAO.getCandidatesForQuiz(family.getId(), whiskey.getId());
+        List<CocktailCandidate> anySpirit = cocktailDAO.getCandidatesForQuiz(family.getId(), null);
 
         assertEquals(1, onlyWhiskey.size());
         assertEquals("Old Fashioned", onlyWhiskey.getFirst().getCocktail().getName());
@@ -163,7 +163,7 @@ class CocktailDAOIntegrationTest extends IntegrationTestBase{
         cocktail.setSyrup(syrup);
         cocktailDAO.create(cocktail);
 
-        List<CocktailCandidateDAO> candidates = cocktailDAO.getCandidatesForQuiz(family.getId(), null);
+        List<CocktailCandidate> candidates = cocktailDAO.getCandidatesForQuiz(family.getId(), null);
 
         assertEquals(1, candidates.size());
         Map<Long, Integer> profile = candidates.getFirst().getFlavorProfile();

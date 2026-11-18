@@ -22,8 +22,8 @@ public class CocktailDAO extends AbstractDAO<Cocktail, Long> {
      */
     private static final String COCKTAIL_WITH_RELATIONS =
             "SELECT c FROM Cocktail c " +
-            "LEFT JOIN FETCH c.cocktailFamily " + // LEFT JOIN FETCH because can be null
-            "LEFT JOIN FETCH c.spirit " +
+            "JOIN FETCH c.cocktailFamily " +
+            "LEFT JOIN FETCH c.spirit " + // LEFT JOIN FETCH because can be null
             "LEFT JOIN FETCH c.liqueur " +
             "LEFT JOIN FETCH c.mixer " +
             "LEFT JOIN FETCH c.syrup " +
@@ -60,7 +60,7 @@ public class CocktailDAO extends AbstractDAO<Cocktail, Long> {
 
 
 
-    public List<CocktailCandidateDAO> getCandidatesForQuiz(Long familyId, Long spiritId) {
+    public List<CocktailCandidate> getCandidatesForQuiz(Long familyId, Long spiritId) {
         try (EntityManager em = emf.createEntityManager()) {
 
             StringBuilder jpql = new StringBuilder(COCKTAIL_WITH_RELATIONS) // StringBuilder because there is a conditional structure
@@ -79,9 +79,9 @@ public class CocktailDAO extends AbstractDAO<Cocktail, Long> {
 
             List<Cocktail> cocktails = query.getResultList();
 
-            List<CocktailCandidateDAO> candidates = new ArrayList<>();
+            List<CocktailCandidate> candidates = new ArrayList<>();
             for (Cocktail cocktail : cocktails) {
-                candidates.add(new CocktailCandidateDAO
+                candidates.add(new CocktailCandidate
                         (cocktail, buildFlavorProfile(cocktail)));
             }
 
